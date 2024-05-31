@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The front-page : ACCUEIL 
+ * front-page : ACCUEIL 
  *
  * @package WordPress
  * @subpackage nathalie-mota theme
