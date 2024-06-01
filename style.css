@@ -90,14 +90,14 @@ ul li {
 }
 
 #footer {
-  height: 90px;
+  height: 40px;
   justify-content: center;
   border-top: 1px solid #000000;
+  font-family: "Space Mono, sans-serif";
 }
 
 #header a,
-#footer a,
-#mention_text_footer,
+#footer,
 #widget-area {
   color: rgba(31, 31, 31, 1);
   text-decoration: none;
@@ -307,33 +307,23 @@ input[type="submit"] {
 
 /* BOUTONS */
 .btn_load-more,
-.btn,
-.btn__contact-form-7 {
+.btn-contact,
+/* .btn__contact-form-7*/ {
   position: relative;
   display: inline-block;
   text-align: center;
   color: #000000;
   font-weight: 400;
-  line-height: 20px;
+  /* line-height: 20px; */
   padding: 8px 20px;
   transition: all 0.3s ease-in-out;
 }
 
-.btn,
-.btn__contact-form-7 {
-  background-color: transparent;
-  display: inline-block;
-  font-size: 14px;
-  border-left: 4px solid #000000;
-  border-radius: 0px;
-  overflow: hidden;
-}
-
-.btn {
+/* .btn {
   padding: 8px 40px;
-}
+} */
 
-.btn__contact-form-7 {
+/* .btn__contact-form-7 {
   position: relative;
   max-width: 214px;
   width: 90%;
@@ -343,10 +333,9 @@ input[type="submit"] {
   justify-content: center;
   align-items: center;
   margin: auto;
-}
+} */
 
-.btn a,
-.btn__contact-form-7 .wpcf7-submit {
+.wpcf7-submit {
   position: relative;
   top: 0;
   /* display: inline-block; */
@@ -359,8 +348,7 @@ input[type="submit"] {
   transition-delay: 0.1s;
 }
 
-.btn::before,
-.btn__contact-form-7::before {
+/* .btn__contact-form-7::before {
   content: "";
   display: block;
   position: absolute;
@@ -371,7 +359,7 @@ input[type="submit"] {
   background-color: #000000;
   transform: translate(-100%, 0%);
   transition: 0.36s cubic-bezier(0.4, 0, 1, 1);
-}
+} */
 
 .btn:hover::before,
 .btn__contact-form-7:hover::before {
@@ -384,34 +372,22 @@ input[type="submit"] {
   font-weight: 700;
 }
 
-.btn_load-more {
+.btn_load-more,
+.btn-contact {
   position: relative;
   background-color: #d8d8d8;
   font-size: 12px;
-  border-radius: 1px;
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  border-radius: 2px;
+  padding: 10px 60px;
 }
 
-.btn_load-more::after {
-  content: "";
-  position: absolute;
-  background: url("./assets/img/camera-svgrepo-com.svg") center center / 100%
-    100%;
-  background-repeat: no-repeat;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  width: 16px;
-  height: 13px;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-
-.btn_load-more:hover {
+.btn_load-more:hover,
+.btn-contact:hover {
   background-color: #000000;
-}
-
-.btn_load-more:hover::after {
-  opacity: 1;
+  color: #fff;
 }
 
 /* HERO */
@@ -514,6 +490,7 @@ form {
   font-size: 12px;
   color: #313144;
   margin-right: 40px;
+  padding: 9px 15px 7px;
 }
 
 /* .select-open {
