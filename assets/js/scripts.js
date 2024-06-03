@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // console.log("Script principal lancé !!!");
+  // console.log("Lecture du DOM");
 
   const contactBtn = document.querySelectorAll(".contact");
   const popupOverlay = document.querySelector(".popup-overlay");
@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Gestion de la pagination des photos
   (function ($) {
     $(document).ready(function () {
-      // Gestion de la fermeture et de l'ouverture du menu
-      // dans une modale pour la version mobile
+      // Gestion de la fermeture et de l'ouverture du menu mobile
       $(".btn-modal").click(function (e) {
         $(".modal__content").toggleClass("animate-modal");
         $(".modal__content").toggleClass("open");
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   })(jQuery);
 
-  // Ouverture de la pop contact au clic sur un lien contact
+  // Ouverture de la popup contact au clic sur le lien contact
   contactBtn.forEach((contact) => {
     contact.addEventListener("click", () => {
       popupOverlay.classList.remove("hidden");

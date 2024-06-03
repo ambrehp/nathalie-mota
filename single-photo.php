@@ -15,24 +15,17 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<section class="photo_detail">
 			<!-- Section détail photo -->
 			<?php
-			// echo ('photo-detail.php');
 			//   Vérifier l'activation de ACF
 			if (!function_exists('get_field')) return;
 
 			// Récupérer la taxonomie actuelle
 			$term = get_queried_object();
-			// $term_id  = my_acf_load_value('ID', $term);
 
-			// Récupération du nom de la catégorie et du format
+			// Récupérer les info de la photo
 			$categorie  = my_acf_load_value('name', get_field('categorie-acf'));
-			// $categorie  = my_acf_load_value('name', get_field('categorie-cpt'));
-
 			$format = my_acf_load_value('name', get_field('format-acf'));
-			// $format = my_acf_load_value('name', get_field('format-cpt'));
 			$reference = get_field('reference');
 			$type = get_field('type');
-			$annee = get_field('annee');
-			$essais = get_field('categorie-acf');
 			?>
 
 			<article class="container__photo flexcolumn">
