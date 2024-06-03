@@ -349,7 +349,7 @@ input[type="submit"] {
   background-color: #000000;
   color: #fff !important;
 }
-.contact {
+button.contact {
   margin-left: 80px;
 }
 

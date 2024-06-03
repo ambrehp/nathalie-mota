@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Modal lightbox
+ * lightbox
  *
  * @package WordPress
  * @subpackage nathalie-mota theme

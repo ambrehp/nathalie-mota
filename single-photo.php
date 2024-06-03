@@ -15,13 +15,13 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<section class="photo_detail">
 			<!-- Section détail photo -->
 			<?php
-			//   Vérifier l'activation de ACF
+			//   On vérifie l'activation de ACF
 			if (!function_exists('get_field')) return;
 
-			// Récupérer la taxonomie actuelle
+			// On récupère la taxonomie actuelle
 			$term = get_queried_object();
 
-			// Récupérer les info de la photo
+			// On récupère les info de la photo
 			$categorie  = my_acf_load_value('name', get_field('categorie-acf'));
 			$format = my_acf_load_value('name', get_field('format-acf'));
 			$reference = get_field('reference');
@@ -33,13 +33,13 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 					<div class="photo__info--description flexcolumn">
 						<h1><?php the_title(); ?></h1>
 						<ul class="flexcolumn">
-							<!-- Affiche les données ACF -->
+							<!-- On affiche les données ACF -->
 							<li class="reference">Référence :
 								<?php
 								if ($reference) {
 									echo $reference;
 								} else {
-									echo ('Inconnue');
+									echo ('Aucune référence');
 								}
 								?>
 							</li>
@@ -48,7 +48,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 								if ($categorie) {
 									echo $categorie;
 								} else {
-									echo ('Inconnue');
+									echo ('Aucune catérogie');
 								}
 								?>
 							</li>
@@ -57,7 +57,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 								if ($format) {
 									echo $format;
 								} else {
-									echo ('Inconnu');
+									echo ('Aucun format');
 								}
 								?>
 							</li>
@@ -66,7 +66,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 								if ($type) {
 									echo $type;
 								} else {
-									echo ('Inconnu');
+									echo ('Aucun type');
 								}
 								?>
 							</li>
@@ -141,7 +141,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 				<h2>Vous aimerez aussi</h2>
 				<div class="photo__others--images flexrow">
 					<?php
-					get_template_part('template-parts/post/photo-common');
+					get_template_part('template-parts/photo_block');
 					?>
 				</div>
 			</div>

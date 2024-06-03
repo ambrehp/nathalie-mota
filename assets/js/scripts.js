@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (document.querySelector(".reference") !== null) {
         let ref = document.querySelector(".reference").innerText.substring(11);
         ref = ref.trim();
-        if (document.querySelector(".refPhoto") !== null) {
-          document.querySelector(".refPhoto").value = ref;
+        if (document.querySelector(".refphoto") !== null) {
+          document.querySelector(".refphoto").value = ref;
         }
       }
     });
