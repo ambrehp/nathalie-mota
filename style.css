@@ -206,13 +206,12 @@ ul li {
   display: flex;
   justify-content: center;
   text-align: center;
-  /* align-items: center */
 }
 
 #modal__content .menu-main-menu-container ul {
   flex-direction: column;
   justify-content: space-around;
-  padding: 35px 20px 25px;
+  padding: 110px 20px 25px;
 }
 
 #modal__content .menu-main-menu-container li {
@@ -226,9 +225,8 @@ ul li {
 
 .animate-modal {
   opacity: 1;
-  /* width: 100vw; */
-  height: auto;
-  animation: move-down 2s 300ms both;
+  height: 82vh;
+  animation: move-down 1.7s 200ms both;
 }
 
 /* Pour faire apparaitre la moadle en descendant et avec agmentatation de l'opacité */
@@ -679,16 +677,29 @@ form {
     line-height: 80px;
   }
 
+  .filter-area .filterleft {
+    width: 460px !important;
+  }
+  .filter-area .select-filter {
+    width: 160px;
+  }
+  .filter-area .option-filter {
+    width: 150px;
+  }
+  .swiper-wrapper {
+    width: 85% !important;
+  }
+
   #footer {
     border-top: 1px solid #000000;
-    padding: 100px 10px;
+    padding: 30px 10px;
+    font-size: 12px;
   }
 
   #footer,
   .menu-footer-menu-container,
   .menu-footer-menu-container li {
     display: flex;
-    flex-direction: column;
   }
 
   #footer a,

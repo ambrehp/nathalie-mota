@@ -120,6 +120,25 @@
 }
 
 /*  **********************************  */
+/*    Media query : max-width: 1024px    */
+/*  **********************************  */
+@media all and (max-width: 1024px) {
+  .lightbox__next {
+    right: 0px;
+  }
+  .text-next {
+    margin-left: -92px;
+  }
+
+  .lightbox__prev {
+    left: 0px;
+  }
+  .text-prev {
+    margin-left: 15px;
+  }
+}
+
+/*  **********************************  */
 /*    Media query : max-width: 580px    */
 /*  **********************************  */
 @media all and (max-width: 580px) {
