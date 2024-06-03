@@ -168,8 +168,12 @@ get_header();
                     <div class="lightbox__loader hidden"></div>
                     <div class="lightbox__container_info flexcolumn" id="lightbox__container_info">
                         <div class="lightbox__container_content flexcolumn" id="lightbox__container_content"></div>
-                        <button class="lightbox__next" aria-label="photo suivante" title="Suivante">Suivante</button>
-                        <button class="lightbox__prev" aria-label="photo précente" title="Précédente">Précédente</button>
+                        <button class="lightbox__next" aria-label="photo suivante" title="Suivante">
+                            <p class="text-next">Suivante</p>
+                        </button>
+                        <button class="lightbox__prev" aria-label="photo précédente" title="Précédente">
+                            <p class="text-prev">Précédente</p>
+                        </button>
                     </div>
                 </div>
             </div>

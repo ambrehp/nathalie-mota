@@ -1,9 +1,4 @@
-/*
-Theme Name: nathalie-mota
-Theme URI: https://motaphoto.com
-*/
-
-/* IMAGE PLEINE ECRAN */
+/* PLEINE ECRAN LIGHTBOX */
 .lightbox {
   position: fixed;
   top: 0;
@@ -53,12 +48,12 @@ Theme URI: https://motaphoto.com
 
 .lightbox__prev {
   background: url("../img/prev_white.svg") center center / 100% 100% no-repeat;
-  left: 20px;
+  left: -50px;
 }
 
 .lightbox__next {
   background: url("../img/next_white.svg") center center / 100% 100% no-repeat;
-  right: 20px;
+  right: -50px;
 }
 
 .lightbox .lightbox__container {
@@ -100,38 +95,28 @@ Theme URI: https://motaphoto.com
 
 .lightbox__info {
   gap: 20px;
-  align-items: left;
+  justify-content: space-between;
 }
 
-.lightbox .lightbox__container h2,
 .lightbox .lightbox__container p {
   color: #ffffff;
   opacity: 1;
 }
 
-.lightbox .lightbox__container h2 {
-  width: 80%;
-  font-weight: 400;
-  font-size: 16px;
-  padding-top: 10px;
-  text-align: left;
+.lightbox .lightbox__container p {
+  font-size: 12px;
+  font-family: "Space Mono";
 }
 
-.lightbox .lightbox__container p {
-  font-size: 10px;
+.text-prev {
+  margin-left: 30px;
+}
+.text-next {
+  margin-left: -110px;
 }
 
 .lightbox .lightbox__container .lightbox__info {
-  text-align: left;
   width: 80%;
-}
-
-/* Gestion d'une image d'attente de chargement */
-.lightbox__loader {
-  width: 38px;
-  height: 38px;
-  opacity: 0.5;
-  background: url("../img/loader.svg") center center no-repeat;
 }
 
 /*  **********************************  */
@@ -152,10 +137,5 @@ Theme URI: https://motaphoto.com
 
   .lightbox__prev {
     left: 0px;
-  }
-
-  .lightbox .lightbox__container h2 {
-    font-size: 12px;
-    padding-top: 15px;
   }
 }
