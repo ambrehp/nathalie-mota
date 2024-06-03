@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactBtn = document.querySelectorAll(".contact");
   const popupOverlay = document.querySelector(".popup-overlay");
 
-  // Gestion de la pagination des photos
   (function ($) {
     $(document).ready(function () {
       // Gestion de la fermeture et de l'ouverture du menu mobile

@@ -52,13 +52,15 @@ $max_pages = $query->max_num_pages;
          <?php
          // On récupère la taxonomie ACF actuelle
          $term = get_queried_object();
-         // On récupère le nom de la catégorie 
+         // On déclare les variables pour les informations de la photo
+         $reference = get_field('reference');
          $categorie  = my_acf_load_value('name', get_field('categorie-acf'));
          ?>
 
          <div class="news-info brightness">
             <?php if (has_post_thumbnail()) : ?>
                <div class="thumbnail">
+                  <p class="photo-reference"><?php echo $reference; ?></p>
                   <h3 class="info-tax"><?php echo $categorie; ?></h3>
                   <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" aria-label="<?php the_title(); ?>"><span class="detail-photo"></span></a>
                   <?php the_post_thumbnail('desktop-home'); ?>

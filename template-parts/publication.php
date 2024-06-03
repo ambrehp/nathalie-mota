@@ -13,13 +13,14 @@
     <?php
     // On récupère la taxonomie ACF actuelle
     $term = get_queried_object();
-    // On récupère le nom de la catégorie 
+    // On déclare les variables pour les informations de la photo
+    $reference = get_field('reference');
     $categorie  = my_acf_load_value('name', get_field('categorie-acf'));
     ?>
 
     <!-- On génère le nombre de photo en fonction de l'option dans WordPress -->
     <div class="news-info brightness">
-        <h2 class="info-title"><?php the_title(); ?></h2>
+        <p class="photo-reference"><?php echo $reference; ?></p>
         <h3 class="info-tax"><?php echo $categorie; ?></h3>
         <a href="<?php the_permalink() ?>" aria-label="Voir le détail de la photo <?php the_title(); ?>" alt="<?php the_title(); ?>" title="Voir le détail de la photo"><span class="detail-photo"></span></a>
         <?php the_post_thumbnail(); ?>
