@@ -352,6 +352,9 @@ input[type="submit"] {
 .contact {
   margin-left: 80px;
 }
+.contact .btn-contact {
+  font-family: "Poppins";
+}
 
 /* HERO */
 .hero-area .hero-thumbnail {

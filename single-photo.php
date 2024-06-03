@@ -17,7 +17,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 			<div class="photo__contact flexrow">
 				<div>
-					<p>Cette photo vous intéresse ? <button class="btn-contact contact" type="button"><a href="#">Contact</a></button></p>
+					<p>Cette photo vous intéresse ? <button class="contact" type="button"><a href="#" class="btn-contact">Contact</a></button></p>
 				</div>
 				<div class="site__navigation flexrow">
 					<div class="site__navigation__prev">
