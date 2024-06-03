@@ -125,17 +125,17 @@ ul li {
   align-content: center;
 }
 
-#navigation .menu-header-menu-container,
+#navigation .menu-main-menu-container,
 #navigation #modal__burger {
   margin-right: 40px;
 }
 
-#navigation .menu-header-menu-container {
+#navigation .menu-main-menu-container {
   opacity: 1;
   transition: all 0.3s ease-in-out;
 }
 
-#navigation .menu-header-menu-container a {
+#navigation .menu-main-menu-container a {
   padding: 0;
 }
 
@@ -195,27 +195,27 @@ ul li {
   transition: all 0.3s ease-in-out;
 }
 
-#modal__content .menu-header-menu-container {
+#modal__content .menu-main-menu-container {
   margin: auto;
   height: auto;
   width: 100vw;
 }
 
-#modal__content .menu-header-menu-container ul,
-#modal__content .menu-header-menu-container li {
+#modal__content .menu-main-menu-container ul,
+#modal__content .menu-main-menu-container li {
   display: flex;
   justify-content: center;
   text-align: center;
   /* align-items: center */
 }
 
-#modal__content .menu-header-menu-container ul {
+#modal__content .menu-main-menu-container ul {
   flex-direction: column;
   justify-content: space-around;
   padding: 35px 20px 25px;
 }
 
-#modal__content .menu-header-menu-container li {
+#modal__content .menu-main-menu-container li {
   height: 80px;
 }
 
@@ -450,6 +450,7 @@ form {
   border-radius: 8px;
   width: 260px;
   height: 40px;
+  font-family: "Poppins";
   font-size: 12px;
   color: #313144;
   margin-right: 40px;
@@ -638,22 +639,22 @@ form {
     width: 138px;
   }
 
-  #navigation .menu-header-menu-container {
+  #navigation .menu-main-menu-container {
     opacity: 0;
   }
 
-  #navigation .menu-header-menu-container a {
+  #navigation .menu-main-menu-container a {
     display: inline-block;
     transform: translateY(-200px);
     height: 0;
   }
 
-  #modal__content .menu-header-menu-container {
+  #modal__content .menu-main-menu-container {
     opacity: 1;
     height: auto;
   }
 
-  #modal__content .menu-header-menu-container a {
+  #modal__content .menu-main-menu-container a {
     display: inline-block;
     transform: translateY(0);
     height: 0;
@@ -664,7 +665,7 @@ form {
     top: 0;
   }
 
-  #navigation .menu-header-menu-container,
+  #navigation .menu-main-menu-container,
   #navigation #modal__burger {
     margin-right: 0;
   }
