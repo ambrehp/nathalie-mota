@@ -41,7 +41,6 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 						?>
 					</div>
 					<div class="site__navigation__next">
-						<!-- next_post_link( '%link', '%title', false );  -->
 						<?php
 						$next_post = get_next_post();
 						if ($next_post) {
