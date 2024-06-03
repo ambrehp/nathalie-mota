@@ -31,7 +31,7 @@ $custom_args = array(
 //On crée ensuite une instance de requête WP_Query basée sur les critères placés dans la variables $args
 $query = new WP_Query($custom_args);
 
-// Création du filtre pour la ligh pour créer un tableau 
+// Création du filtre pour la lightbox pour créer un tableau 
 // avec la liste de toutes les photos correspondant aux filtres
 $custom_args2 = array_replace($custom_args, array('posts_per_page' => -1, 'nopaging' => true,));
 
@@ -45,7 +45,7 @@ $max_pages = $query->max_num_pages;
 <!-- On vérifie si le résultat de la requête contient des articles -->
 <?php if ($query->have_posts()) : ?>
    <article class="container-common flexrow">
-      <!-- On parcourt chacun des articles résultant de la requête -->
+      <!-- On parcourt chacun des articles de la requête -->
       <?php while ($query->have_posts()) : ?>
          <?php $query->the_post(); ?>
 
@@ -73,13 +73,13 @@ $max_pages = $query->max_num_pages;
       <?php endwhile; ?>
    </article>
    <div class="lightbox hidden" id="lightbox">
-      <button class="lightbox__close" title="Refermer le plein écran">Fermer</button>
+      <button class="lightbox__close" title="Fermer"></button>
       <div class="lightbox__container">
          <div class="lightbox__loader hidden"></div>
          <div class="lightbox__container_info flexcolumn" id="lightbox__container_info">
             <div class="lightbox__container_content flexcolumn" id="lightbox__container_content"></div>
-            <button class="lightbox__next" aria-label="Voir la photo suivante" title="Photo suivante"></button>
-            <button class="lightbox__prev" aria-label="Voir la photo précédente" title="Photo précédente"></button>
+            <button class="lightbox__next" aria-label="photo suivante" title="Suivante">Suivante</button>
+            <button class="lightbox__prev" aria-label="photo précédente" title="Précédente">Précédente</button>
          </div>
       </div>
    </div>

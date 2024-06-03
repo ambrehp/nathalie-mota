@@ -158,18 +158,18 @@ get_header();
                 </form>
                 <!-- On parcourt chacun des articles résultant de la requête -->
                 <?php while ($query->have_posts()) : $query->the_post();
-                    get_template_part('template-parts/post/publication');
+                    get_template_part('template-parts/publication');
                 endwhile;
                 ?>
             </article>
             <div class="lightbox hidden" id="lightbox">
-                <button class="lightbox__close" title="Refermer cet agrandissement">Fermer</button>
+                <button class="lightbox__close" title="Fermer"></button>
                 <div class="lightbox__container">
                     <div class="lightbox__loader hidden"></div>
                     <div class="lightbox__container_info flexcolumn" id="lightbox__container_info">
                         <div class="lightbox__container_content flexcolumn" id="lightbox__container_content"></div>
-                        <button class="lightbox__next" aria-label="Voir la photo suivante" title="Photo suivante"></button>
-                        <button class="lightbox__prev" aria-label="Voir la photo précente" title="Photo précédente"></button>
+                        <button class="lightbox__next" aria-label="photo suivante" title="Suivante">Suivante</button>
+                        <button class="lightbox__prev" aria-label="photo précente" title="Précédente">Précédente</button>
                     </div>
                 </div>
             </div>
@@ -184,9 +184,8 @@ get_header();
         wp_reset_postdata();
         ?>
 
+        <!-- Intégration pagination infinie -->
         <div id="pagination">
-            <!-- afficher le système de pagination (s’il existe de nombreux articles) -->
-            <!-- <h3>Articles suivants</h3> -->
             <!-- Variables qui vont pourvoir être récupérées par JavaScript -->
             <form>
                 <input type="hidden" name="orderby" id="orderby" value="<?php echo $orderby; ?>">
