@@ -8,11 +8,12 @@
  */
 ?>
 <footer id="footer">
-	<?php
-	// Affichage du menu footer déclaré dans functions.php
-	wp_nav_menu(array('theme_location' => 'footer'));
-	?>
-	<div>
+	<div class="menu-footer">
+		<?php
+		// Affichage du menu footer déclaré dans functions.php
+		wp_nav_menu(array('theme_location' => 'footer'));
+		?>
+
 		<span>TOUS DROITS RÉSERVÉS </span>
 	</div>
 

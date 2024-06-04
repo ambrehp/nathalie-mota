@@ -95,6 +95,12 @@ ul li {
   border-top: 1px solid #000000;
   font-family: "Space Mono, sans-serif";
 }
+.menu-footer {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+}
 
 #header a,
 #footer,
@@ -241,7 +247,8 @@ ul li {
   }
 }
 
-#footer ul li {
+#footer ul li,
+#footer span {
   padding: 0 40px;
 }
 
@@ -431,6 +438,9 @@ form {
 
 .filter-area option {
   text-transform: capitalize;
+}
+.filter-area option:hover {
+  background-color: #e00000 !important;
 }
 
 .filter-area #date {
@@ -731,12 +741,61 @@ form {
   .filter-area {
     width: 100%;
     overflow: hidden;
+    padding: 20px;
+  }
+  .filter-area .filterleft {
+    width: 330px !important;
   }
 
+  .swiper-free-mode > .swiper-wrapper {
+    margin: 0 0 0 22px !important;
+  }
   .news-info h3,
   .news-info p {
     font-size: 10px !important;
     line-height: 14px !important;
+  }
+
+  #footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  .menu-menu-footer-container {
+    padding-bottom: 10px;
+  }
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 425px    */
+/*  **********************************  */
+@media all and (max-width: 425px) {
+  .hero-area img {
+    max-height: 300px;
+    width: 100%;
+  }
+  .hero-area .title-hero {
+    width: 70%;
+    line-height: 50px;
+  }
+
+  .filter-area {
+    padding: 20px 20px 60px;
+    width: 70%;
+  }
+  .filter-area .filterleft {
+    margin-bottom: 20px;
+  }
+  .filter-area .select-filter {
+    width: 200px;
+  }
+  .filter-area .option-filter {
+    width: 200px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .swiper-wrapper {
+    flex-wrap: wrap !important;
   }
 }
 
@@ -744,10 +803,6 @@ form {
 /*    Media query : max-width: 320px    */
 /*  **********************************  */
 @media all and (max-width: 320px) {
-  .hero-area img {
-    max-height: 300px;
-  }
-
   .news-info h3,
   .news-info p {
     font-size: 8px !important;
@@ -757,6 +812,10 @@ form {
   .hero-area .title-hero {
     font-size: 30px;
     line-height: 40px;
+  }
+
+  .filter-area {
+    width: 90%;
   }
 
   .container-news .news-info {

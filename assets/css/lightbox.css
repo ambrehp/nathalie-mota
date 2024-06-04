@@ -139,6 +139,23 @@
 }
 
 /*  **********************************  */
+/*    Media query : max-width: 768px    */
+/*  **********************************  */
+@media all and (max-width: 768px) {
+  .text-next,
+  .text-prev {
+    display: none;
+  }
+
+  .lightbox__prev {
+    left: 20px;
+  }
+  .lightbox__next {
+    right: 20px;
+  }
+}
+
+/*  **********************************  */
 /*    Media query : max-width: 580px    */
 /*  **********************************  */
 @media all and (max-width: 580px) {
@@ -156,5 +173,22 @@
 
   .lightbox__prev {
     left: 0px;
+  }
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 425px    */
+/*  **********************************  */
+@media all and (max-width: 425px) {
+  .lightbox__prev,
+  .lightbox__next {
+    position: relative;
+  }
+  .lightbox__next {
+    right: -20px;
+  }
+  .lightbox__prev {
+    left: -30px;
+    top: -16px;
   }
 }
