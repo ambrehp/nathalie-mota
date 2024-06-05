@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
             order: order,
           },
           success: function (res) {
-            $(".list-photo").empty().append(res);
+            $(".photo-list").empty().append(res);
             // Récupération de la valeur du nouveau nombre de pages
             let max_pages = document.getElementById("max_pages").value;
             let nb_total_posts = 0;
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Et affiche un message s'il n'y a aucune photo à afficher
             if (nb_total_posts == 0) {
-              $(".list-photo").append(message);
+              $(".photo-list").append(message);
             }
 
             // Réinitialisation du n° de page affiché

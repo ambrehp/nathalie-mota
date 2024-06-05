@@ -83,7 +83,7 @@ function nathalie_mota_load()
 
   if ($query_more->have_posts()) {
     while ($query_more->have_posts()) : $query_more->the_post();
-      $response .= get_template_part('template-parts/publication');
+      $response .= get_template_part('template-parts/photo-list');
     endwhile;
   } else {
     $response = '';

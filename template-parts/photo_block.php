@@ -8,7 +8,7 @@ $orderby = "date";
 
 // On place les critères de la requête dans un Array
 $term = get_queried_object();
-$publication = get_queried_object_id();
+$photoList = get_queried_object_id();
 
 // Récupération du n° de la catégorie pour filtrage
 $categorie_id  =  get_post_meta(get_the_ID(), 'categorie-acf', true);
@@ -24,7 +24,7 @@ $custom_args = array(
    'meta_key' => 'categorie-acf',
    'meta_value' => $categorie_id,
    'compare'   => 'LIKE', // NOT LIKE
-   'post__not_in' => array($publication),
+   'post__not_in' => array($photoList),
    'nopaging' => false,
 );
 
@@ -57,7 +57,7 @@ $max_pages = $query->max_num_pages;
          $categorie  = my_acf_load_value('name', get_field('categorie-acf'));
          ?>
 
-         <div class="news-info brightness">
+         <div class="news-info overlay">
             <?php if (has_post_thumbnail()) : ?>
                <div class="thumbnail">
                   <p class="photo-reference"><?php echo $reference; ?></p>

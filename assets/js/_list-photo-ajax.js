@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
 
           success: function (res) {
-            $(".publication-list").append(res);
+            $(".list-photo").append(res);
 
             // Mise à jour du n° de page affiché
             document.getElementById("currentPage").value = currentPage;

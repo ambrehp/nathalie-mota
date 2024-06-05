@@ -1,7 +1,7 @@
 <?php
 
 /**
- * front-page : ACCUEIL 
+ * The front-page : ACCUEIL 
  *
  * @package WordPress
  * @subpackage nathalie-mota theme
@@ -12,6 +12,7 @@ get_header();
 <div id="front-page">
     <section id="content">
         <!-- Intégration du random hero -->
+        <!-- Wrap Slider Area -->
         <div class="hero-area">
             <div class="hero-thumbnail">
                 <!-- Initialisation de post à afficher -->
@@ -24,12 +25,12 @@ get_header();
                 //On crée ensuite une instance de requête WP_Query basée sur les critères placés dans la variables $args
                 $random_hero = new WP_Query($custom_args);
                 ?>
-                <!-- On récupère un post photo en mode aléatoire -->
+                <!-- Récupération d'un post photo en mode aléatoire (rand) -->
                 <?php while ($random_hero->have_posts()) : ?>
                     <?php $random_hero->the_post(); ?>
 
                     <?php if (has_post_thumbnail()) : ?>
-                        <div><?php the_post_thumbnail('hero'); ?></div>
+                        <a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>"><?php the_post_thumbnail('hero'); ?></a>
                     <?php endif; ?>
 
                 <?php endwhile; ?>
@@ -40,7 +41,6 @@ get_header();
         // On réinitialise à la requête principale
         wp_reset_postdata();
         ?>
-
 
         <!-- Intégration des filtres -->
         <div class="filter-area swiper-container">
@@ -53,11 +53,11 @@ get_header();
                 <div class="filterleft swiper-slide flexrow">
                     <div id="filtre-categorie" class="select-filter flexcolumn">
                         <select class="option-filter" name="categorie_id" id="categorie_id">
-                            <!-- Génération automatique de la liste des catégories en fonction de ce qu'il y a dans WP -->
                             <option id="categorie_0" value="">CATÉGORIES</option>
                             <?php
-                            $categorie_acf = get_terms('categorie-acf', array('hide_empty' => false));
-                            foreach ($categorie_acf as $terms) :
+                            // Récupérer les termes de la taxonomie "catégorie"
+                            $filtres_categorie_acf = get_terms('categorie-acf', array('hide_empty' => false));
+                            foreach ($filtres_categorie_acf as $terms) :
                             ?>
                                 <?php if ($terms->term_taxonomy_id == $categorie_id) : ?>
                                     <option id="categorie_<?php echo $terms->term_taxonomy_id; ?>" value="<?php echo $terms->term_taxonomy_id; ?>" selected><?php echo $terms->name; ?></option>
@@ -69,11 +69,11 @@ get_header();
                     </div>
                     <div id="filtre-format" class="select-filter flexcolumn">
                         <select class="option-filter" name="format_id" id="format_id">
-                            <!-- Génération automatique de la liste des formats en fonction de ce qu'il y a dans WP -->
                             <option id="format_0" value="">FORMATS</option>
                             <?php
-                            $format_acf = get_terms('format-acf', array('hide_empty' => false));
-                            foreach ($format_acf as $terms) :
+                            // Récupérer les termes de la taxonomie "Format"
+                            $filtre_format_acf = get_terms('format-acf', array('hide_empty' => false));
+                            foreach ($filtre_format_acf as $terms) :
                             ?>
                                 <?php if ($terms->term_taxonomy_id == $format_id) : ?>
                                     <option id="format_<?php echo $terms->term_taxonomy_id; ?>" value="<?php echo $terms->term_taxonomy_id; ?>" selected><?php echo $terms->name; ?></option>
@@ -107,7 +107,7 @@ get_header();
 
         // Initialisation du filtre d'affichage des posts
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        // On récupère la taxonomie actuelle
+        // Récupérer la taxonomie actuelle
         $term = get_queried_object();
         $term_id  = my_acf_load_value('ID', $term);
 
@@ -150,45 +150,16 @@ get_header();
         ?>
         <!-- On vérifie si le résultat de la requête contient des articles -->
         <?php if ($query->have_posts()) : ?>
-            <article class="publication-list container-news flexrow">
+            <article class="photo-list container-news flexrow">
                 <!-- Mise à disposition de JS du tableau contenant toutes les données de la requette et le nombre -->
                 <form>
                     <input type="hidden" name="total_posts" id="total_posts" value="<?php print_r($total_posts); ?>">
                     <input type='hidden' name='max_pages' id='max_pages' value='<?php echo $max_pages; ?>'>
                     <input type="hidden" name="nb_total_posts" id="nb_total_posts" value="<?php echo $nb_total_posts; ?>">
                 </form>
-
-                <!-- Intégration de la liste des photos -->
                 <!-- On parcourt chacun des articles résultant de la requête -->
-                <?php while ($query->have_posts()) : $query->the_post(); ?>
-                    <?php if (has_post_thumbnail()) : ?>
-
-                        <?php
-                        // On récupère la taxonomie ACF actuelle
-                        $term = get_queried_object();
-                        // On déclare les variables pour les informations de la photo
-                        $reference = get_field('reference');
-                        $categorie  = my_acf_load_value('name', get_field('categorie-acf'));
-                        ?>
-
-                        <!-- On génère le nombre de photo en fonction de l'option dans WordPress -->
-                        <div class="news-info brightness">
-                            <p class="photo-reference"><?php echo $reference; ?></p>
-                            <h3 class="info-tax"><?php echo $categorie; ?></h3>
-                            <a href="<?php the_permalink() ?>" aria-label="Voir la photo <?php the_title(); ?>" alt="<?php the_title(); ?>" title="Voir la photo"><span class="detail-photo"></span></a>
-                            <?php the_post_thumbnail(); ?>
-                            <p><?php the_terms($post->ID, 'categorie-acf', ''); ?></p>
-                            <form>
-                                <input type="hidden" name="postid" class="postid" value="<?php the_id(); ?>">
-
-                                <a class="openLightbox" title="Afficher la photo en plein écran" alt="Afficher la photo en plein écran" data-postid="<?php echo get_the_id(); ?>" data-arrow="true">
-                                </a>
-                            </form>
-                        </div>
-
-                    <?php endif; ?>
-                    <!-- // get_template_part('template-parts/publication'); -->
-                <?php
+                <?php while ($query->have_posts()) : $query->the_post();
+                    get_template_part('template-parts/photo-list');
                 endwhile;
                 ?>
             </article>
@@ -208,7 +179,7 @@ get_header();
                 </div>
             </div>
         <?php else : ?>
-            <p>Désolé. Aucun article ne correspond à la demande.</p>
+            <p>Désolé. Aucun article ne correspond à votre demande.</p>
 
         <?php endif; ?>
 

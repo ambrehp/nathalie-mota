@@ -1,8 +1,6 @@
 <?php
 
 /**
- * Modal publication
- *
  * @package WordPress
  * @subpackage nathalie-mota theme
  */
@@ -19,7 +17,7 @@
     ?>
 
     <!-- On génère le nombre de photo en fonction de l'option dans WordPress -->
-    <div class="news-info brightness">
+    <div class="news-info overlay">
         <p class="photo-reference"><?php echo $reference; ?></p>
         <h3 class="info-tax"><?php echo $categorie; ?></h3>
         <a href="<?php the_permalink() ?>" aria-label="Voir le détail de la photo <?php the_title(); ?>" alt="<?php the_title(); ?>" title="Voir le détail de la photo"><span class="detail-photo"></span></a>

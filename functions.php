@@ -36,7 +36,7 @@ function nathalie_mota_theme_enqueue()
     // Script JS disponnibles chargé uniquement avec front_page 
     if (is_front_page()) {
         wp_enqueue_script('nathalie-mota-scripts-filtres', get_theme_file_uri('/assets/js/filtres.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/filtres.js'), true);
-        wp_enqueue_script('nathalie-mota-scripts-list-photo-ajax', get_theme_file_uri('/assets/js/list-photo-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/list-photo-ajax.js'), true);
+        wp_enqueue_script('nathalie-mota-scripts-photo-list-ajax', get_theme_file_uri('/assets/js/photo-list-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list-ajax.js'), true);
         wp_enqueue_script('nathalie-mota-scripts-lightbox-ajax', get_theme_file_uri('/assets/js/lightbox-front-page-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page-ajax.js'), true);
     };
 }
