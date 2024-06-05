@@ -61,7 +61,6 @@ add_image_size('hero', 1450, 960, true);
 add_image_size('desktop-home', 600, 520, true);
 add_image_size('lightbox', 1300, 900, true);
 
-
 // créer un lien pour la gestion des menus dans l'administration
 // et activation d'un menu pour le header et d'un menu pour le footer
 // Visibles ensuite dans Apparence / Menus (after_setup_theme)
@@ -72,6 +71,36 @@ function register_my_menu()
 }
 add_action('after_setup_theme', 'register_my_menu');
 
+// créer un pour la gestion des widgets dans l'administration
+// et l'activation des sidebars
+// Visibles ensuite dans Apparence / Widgets (widgets_init)
+function nathalie_mota_widgets()
+{
+    register_sidebar(
+        array(
+            'name' => "Widget Sidebar",
+            'id' => 'main-sidebar',
+            'description' => "Widget pour la sidebar principale",
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' => "Widget footer",
+            'id' => 'footer-widget',
+            'description' => "Widget pour le pied de page",
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        )
+    );
+}
+add_action('widgets_init', 'nathalie_mota_widgets');
 
 
 /**

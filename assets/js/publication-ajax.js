@@ -29,16 +29,16 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
 
         // L'URL qui réceptionne les requêtes Ajax dans l'attribut "action" de <form>
-        // Récupération du jeton de sécurité
+        // On récupère le jeton de sécurité
         const nonce = $("#nonce").val();
 
-        // Récupération de l'adresse de la page	pour pointer Ajax
+        // On récupère de l'adresse de la page	pour pointer Ajax
         const ajaxurl = $("#ajaxurl").val();
 
         if (document.getElementById("currentPage") !== null) {
           currentPage = document.getElementById("currentPage").value;
         }
-        // Récupération des valeurs des variables du filtre au moment du click
+        // On récupère les valeurs des variables du filtre au moment du click
         const categorie_id = document.getElementById("categorie_id").value;
         const format_id = document.getElementById("format_id").value;
         let order = document.getElementById("date").value;

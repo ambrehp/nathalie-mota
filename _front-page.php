@@ -12,6 +12,7 @@ get_header();
 <div id="front-page">
     <section id="content">
         <!-- Intégration du random hero -->
+        <!-- Wrap Slider Area -->
         <div class="hero-area">
             <div class="hero-thumbnail">
                 <!-- Initialisation de post à afficher -->
@@ -24,12 +25,12 @@ get_header();
                 //On crée ensuite une instance de requête WP_Query basée sur les critères placés dans la variables $args
                 $random_hero = new WP_Query($custom_args);
                 ?>
-                <!-- On récupère un post photo en mode aléatoire -->
+                <!-- Récupération d'un post photo en mode aléatoire (rand) -->
                 <?php while ($random_hero->have_posts()) : ?>
                     <?php $random_hero->the_post(); ?>
 
                     <?php if (has_post_thumbnail()) : ?>
-                        <div><?php the_post_thumbnail('hero'); ?></div>
+                        <a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>"><?php the_post_thumbnail('hero'); ?></a>
                     <?php endif; ?>
 
                 <?php endwhile; ?>
@@ -40,7 +41,6 @@ get_header();
         // On réinitialise à la requête principale
         wp_reset_postdata();
         ?>
-
 
         <!-- Intégration des filtres -->
         <div class="filter-area swiper-container">
@@ -53,11 +53,11 @@ get_header();
                 <div class="filterleft swiper-slide flexrow">
                     <div id="filtre-categorie" class="select-filter flexcolumn">
                         <select class="option-filter" name="categorie_id" id="categorie_id">
-                            <!-- Génération automatique de la liste des catégories en fonction de ce qu'il y a dans WP -->
                             <option id="categorie_0" value="">CATÉGORIES</option>
                             <?php
-                            $categorie_acf = get_terms('categorie-acf', array('hide_empty' => false));
-                            foreach ($categorie_acf as $terms) :
+                            // Récupérer les termes de la taxonomie "catégorie"
+                            $filtres_categorie_acf = get_terms('categorie-acf', array('hide_empty' => false));
+                            foreach ($filtres_categorie_acf as $terms) :
                             ?>
                                 <?php if ($terms->term_taxonomy_id == $categorie_id) : ?>
                                     <option id="categorie_<?php echo $terms->term_taxonomy_id; ?>" value="<?php echo $terms->term_taxonomy_id; ?>" selected><?php echo $terms->name; ?></option>
@@ -69,11 +69,11 @@ get_header();
                     </div>
                     <div id="filtre-format" class="select-filter flexcolumn">
                         <select class="option-filter" name="format_id" id="format_id">
-                            <!-- Génération automatique de la liste des formats en fonction de ce qu'il y a dans WP -->
                             <option id="format_0" value="">FORMATS</option>
                             <?php
-                            $format_acf = get_terms('format-acf', array('hide_empty' => false));
-                            foreach ($format_acf as $terms) :
+                            // Récupérer les termes de la taxonomie "Format"
+                            $filtre_format_acf = get_terms('format-acf', array('hide_empty' => false));
+                            foreach ($filtre_format_acf as $terms) :
                             ?>
                                 <?php if ($terms->term_taxonomy_id == $format_id) : ?>
                                     <option id="format_<?php echo $terms->term_taxonomy_id; ?>" value="<?php echo $terms->term_taxonomy_id; ?>" selected><?php echo $terms->name; ?></option>
@@ -96,7 +96,6 @@ get_header();
             </form>
         </div>
 
-
         <?php
         // Initialisation de variable pour les filtres de requettes Query
         $categorie_id = "";
@@ -109,7 +108,7 @@ get_header();
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         // On récupère la taxonomie actuelle
         $term = get_queried_object();
-        $term_id  = my_acf_load_value('ID', $term);
+        // $term_id  = my_acf_load_value('ID', $term);
 
         // $categorie_id  =  get_post_meta( get_the_ID(), 'categorie-acf', true );
         // $format_id  =  get_post_meta( get_the_ID(), 'format-acf', true );
@@ -157,9 +156,11 @@ get_header();
                     <input type='hidden' name='max_pages' id='max_pages' value='<?php echo $max_pages; ?>'>
                     <input type="hidden" name="nb_total_posts" id="nb_total_posts" value="<?php echo $nb_total_posts; ?>">
                 </form>
+
+                <!-- Chargement de la liste des photos -->
                 <!-- On parcourt chacun des articles résultant de la requête -->
                 <?php while ($query->have_posts()) : $query->the_post();
-                    get_template_part('template-parts/publication');
+                    get_template_part('template-parts/liste-photos');
                 endwhile;
                 ?>
             </article>
@@ -189,9 +190,8 @@ get_header();
         wp_reset_postdata();
         ?>
 
+        <!-- Intégration pagination infinie -->
         <div id="pagination">
-            <!-- afficher le système de pagination (s’il existe de nombreux articles) -->
-            <!-- <h3>Articles suivants</h3> -->
             <!-- Variables qui vont pourvoir être récupérées par JavaScript -->
             <form>
                 <input type="hidden" name="orderby" id="orderby" value="<?php echo $orderby; ?>">
