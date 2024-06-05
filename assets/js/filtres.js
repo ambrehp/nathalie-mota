@@ -1,26 +1,7 @@
-// Script pour gérer les filtres d'affichage en page d'accueil (front-page)
-//
-console.log("Script filtres en ajax lancé !!!");
-
-/**
- * Variables récupérées / renvoyées
- *
- * nonce : jeton de sécurité
- * ajaxurl : adresse URL de la fonction Ajax dans WP
- *
- * categorie_id : n° de la catégorie demandée ou vide si on ne filtre pas par catégorie
- * format_id : n° du format demandé ou vide si on ne filtre pas par format
- * order : ordre de tri Croissant (ASC) ou Décroissant (DEC)
- * orderby : actuellement on trie par la date mais on pourrait éventuellement avoir un autre critère
- * currentPage : page affichée au moment de l'utilisation du script
- * max_pages : page maximum en fonction des filtres
- * nb_total_posts : nombres de photos à afficher
- *
- */
+// console.log("Script filtres en ajax lancé !!!");
 
 document.addEventListener("DOMContentLoaded", function () {
-  const body = document.querySelector("body");
-  const allDashicons = document.querySelectorAll(".dashicons");
+  let body = document.querySelector("body");
   const allSelect = document.querySelectorAll("select");
   const message = "<p>Désolé. Aucun article ne correspond à cette demande.<p>";
 
@@ -45,16 +26,16 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("currentPage").value = 1;
 
   // Gestion du déplacement des filtres horizontalement
-  const swiper = new Swiper(".swiper-container", {
-    freeMode: true,
-    grabCursor: true,
-    breakpoints: {
-      1200: {
-        grabCursor: false,
-        allowTouchMove: false,
-      },
-    },
-  });
+  // const swiper = new Swiper(".swiper-container", {
+  //   freeMode: true,
+  //   grabCursor: true,
+  //   breakpoints: {
+  //     1200: {
+  //       grabCursor: false,
+  //       allowTouchMove: false,
+  //     },
+  //   },
+  // });
 
   (function ($) {
     $(document).ready(function () {
@@ -104,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
             order: order,
           },
           success: function (res) {
-            $(".publication-list").empty().append(res);
+            $(".list-photo").empty().append(res);
             // Récupération de la valeur du nouveau nombre de pages
             let max_pages = document.getElementById("max_pages").value;
             let nb_total_posts = 0;
@@ -123,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Et affiche un message s'il n'y a aucune photo à afficher
             if (nb_total_posts == 0) {
-              $(".publication-list").append(message);
+              $(".list-photo").append(message);
             }
 
             // Réinitialisation du n° de page affiché
@@ -135,62 +116,62 @@ document.addEventListener("DOMContentLoaded", function () {
   })(jQuery);
 
   // Réinitialisation des flèches des select si on click en dehors
-  body.addEventListener("click", (e) => {
-    if (e.target.tagName != "select" && e.target.tagName != "SELECT") {
-      initArrow();
-    }
-  });
+  // body.addEventListener("click", (e) => {
+  //   if (e.target.tagName != "select" && e.target.tagName != "SELECT") {
+  //     initArrow();
+  //   }
+  // });
 
   // Fonction pour rechercher un mot dans une variable
   // retourne vrai si le mot est trouvé, si non retourne false
-  function findWord(word, str) {
-    return RegExp("\\b" + word + "\\b").test(str);
-  }
+  // function findWord(word, str) {
+  //   return RegExp("\\b" + word + "\\b").test(str);
+  // }
 
   // Réinitialisation de l'affichage des flèches sur les select
-  const initArrow = () => {
-    console.log("Initialisation des fleches");
-    allDashicons.forEach((dashicons) => {
-      dashicons.classList.add("select-close");
-      dashicons.classList.remove("select-open");
-    });
-  };
+  // const initArrow = () => {
+  //   console.log("Initialisation des fleches");
+  //   allDashicons.forEach((dashicons) => {
+  //     dashicons.classList.add("select-close");
+  //     dashicons.classList.remove("select-open");
+  //   });
+  // };
 
   // Passer de la flèche qui descend à la flèqhe qui monte
   // et inversement
   // et force la flèche qui descend sur les 2 autres selects
-  const arrow = (arg) => {
-    allDashicons.forEach((dashicons) => {
-      if (findWord(arg, dashicons.className)) {
-        if (
-          findWord("select-close", dashicons.className) ||
-          findWord("select-open", dashicons.className)
-        ) {
-          // initArrow();
-          if (findWord("select-close", dashicons.className)) {
-            dashicons.classList.remove("select-close");
-            dashicons.classList.add("select-open");
-          } else {
-            dashicons.classList.add("select-close");
-            dashicons.classList.remove("select-open");
-          }
-        }
-      }
-    });
-  };
+  // const arrow = (arg) => {
+  //   allDashicons.forEach((dashicons) => {
+  //     if (findWord(arg, dashicons.className)) {
+  //       if (
+  //         findWord("select-close", dashicons.className) ||
+  //         findWord("select-open", dashicons.className)
+  //       ) {
+  //         // initArrow();
+  //         if (findWord("select-close", dashicons.className)) {
+  //           dashicons.classList.remove("select-close");
+  //           dashicons.classList.add("select-open");
+  //         } else {
+  //           dashicons.classList.add("select-close");
+  //           dashicons.classList.remove("select-open");
+  //         }
+  //       }
+  //     }
+  //   });
+  // };
 
   // Détection du click sur un select
   // et modification de la flèche correpondante
-  allSelect.forEach((select) => {
-    select.addEventListener("click", (e) => {
-      e.preventDefault();
+  // allSelect.forEach((select) => {
+  //   select.addEventListener("click", (e) => {
+  //     e.preventDefault();
 
-      // On contrôle si on a clické dans un autre select
-      if (select.id != selectId) {
-        initArrow();
-      }
-      selectId = select.id;
-      arrow(selectId);
-    });
-  });
+  //     // On contrôle si on a clické dans un autre select
+  //     if (select.id != selectId) {
+  //       initArrow();
+  //     }
+  //     selectId = select.id;
+  //     arrow(selectId);
+  //   });
+  // });
 });

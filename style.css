@@ -460,6 +460,7 @@ form {
   padding: 9px 15px 7px;
 }
 
+/* Liste photos */
 .container-news {
   width: 100%;
   max-width: 1440px;
@@ -515,11 +516,11 @@ form {
 
 .news-info img,
 .news img,
-.brightness {
+.overlay {
   transition: all 0.5s ease-in-out;
 }
 
-.brightness::before {
+.overlay::before {
   content: "";
   position: absolute;
   top: 0;
@@ -531,7 +532,7 @@ form {
   transition: all 0.5s ease-in-out;
 }
 
-.brightness:hover::before {
+.overlay:hover::before {
   opacity: 0.5;
 }
 

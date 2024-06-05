@@ -36,7 +36,7 @@ function nathalie_mota_theme_enqueue()
     // Script JS disponnibles chargé uniquement avec front_page 
     if (is_front_page()) {
         wp_enqueue_script('nathalie-mota-scripts-filtres', get_theme_file_uri('/assets/js/filtres.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/filtres.js'), true);
-        wp_enqueue_script('nathalie-mota-scripts-publication-ajax', get_theme_file_uri('/assets/js/publication-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/publication-ajax.js'), true);
+        wp_enqueue_script('nathalie-mota-scripts-list-photo-ajax', get_theme_file_uri('/assets/js/list-photo-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/list-photo-ajax.js'), true);
         wp_enqueue_script('nathalie-mota-scripts-lightbox-ajax', get_theme_file_uri('/assets/js/lightbox-front-page-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page-ajax.js'), true);
     };
 }
@@ -63,7 +63,6 @@ add_image_size('lightbox', 1300, 900, true);
 
 // créer un lien pour la gestion des menus dans l'administration
 // et activation d'un menu pour le header et d'un menu pour le footer
-// Visibles ensuite dans Apparence / Menus (after_setup_theme)
 function register_my_menu()
 {
     register_nav_menu('main', "Menu principal");
@@ -74,33 +73,33 @@ add_action('after_setup_theme', 'register_my_menu');
 // créer un pour la gestion des widgets dans l'administration
 // et l'activation des sidebars
 // Visibles ensuite dans Apparence / Widgets (widgets_init)
-function nathalie_mota_widgets()
-{
-    register_sidebar(
-        array(
-            'name' => "Widget Sidebar",
-            'id' => 'main-sidebar',
-            'description' => "Widget pour la sidebar principale",
-            'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</div>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>'
-        )
-    );
+// function nathalie_mota_widgets()
+// {
+//     register_sidebar(
+//         array(
+//             'name' => "Widget Sidebar",
+//             'id' => 'main-sidebar',
+//             'description' => "Widget pour la sidebar principale",
+//             'before_widget' => '<div id="%1$s" class="widget %2$s">',
+//             'after_widget'  => '</div>',
+//             'before_title'  => '<h2 class="widget-title">',
+//             'after_title'   => '</h2>'
+//         )
+//     );
 
-    register_sidebar(
-        array(
-            'name' => "Widget footer",
-            'id' => 'footer-widget',
-            'description' => "Widget pour le pied de page",
-            'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</div>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>'
-        )
-    );
-}
-add_action('widgets_init', 'nathalie_mota_widgets');
+//     register_sidebar(
+//         array(
+//             'name' => "Widget footer",
+//             'id' => 'footer-widget',
+//             'description' => "Widget pour le pied de page",
+//             'before_widget' => '<div id="%1$s" class="widget %2$s">',
+//             'after_widget'  => '</div>',
+//             'before_title'  => '<h2 class="widget-title">',
+//             'after_title'   => '</h2>'
+//         )
+//     );
+// }
+// add_action('widgets_init', 'nathalie_mota_widgets');
 
 
 /**

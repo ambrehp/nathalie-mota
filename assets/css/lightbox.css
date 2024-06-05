@@ -1,4 +1,4 @@
-/* PLEINE ECRAN LIGHTBOX */
+/* Image plein écran */
 .lightbox {
   position: fixed;
   top: 0;
@@ -37,7 +37,7 @@
 }
 
 .lightbox__close {
-  background: url("../img/vector.svg") center center / 100% 100% no-repeat;
+  background: url("../img/cross_close.svg") center center / 100% 100% no-repeat;
   width: 25px;
   height: 25px;
   position: fixed;
@@ -47,12 +47,14 @@
 }
 
 .lightbox__prev {
-  background: url("../img/prev_white.svg") center center / 100% 100% no-repeat;
+  background: url("../img/arrow_prev_white.svg") center center / 100% 100%
+    no-repeat;
   left: -50px;
 }
 
 .lightbox__next {
-  background: url("../img/next_white.svg") center center / 100% 100% no-repeat;
+  background: url("../img/arrow_next_white.svg") center center / 100% 100%
+    no-repeat;
   right: -50px;
 }
 

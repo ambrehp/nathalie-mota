@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   (function ($) {
     $(document).ready(function () {
       // Gestion de la pagination de la lightbox
-      $(".publication-list").click(function (e) {
+      $(".list-photo").click(function (e) {
         e.preventDefault();
 
         // Récupération des élements du DOM enfants

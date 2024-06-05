@@ -76,7 +76,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 						</ul>
 					</div>
 					<div class="photo__info--image flexcolumn">
-						<div class="container--image brightness">
+						<div class="container--image overlay">
 							<!-- permet d’afficher l’image mise en avant -->
 							<?php the_post_thumbnail('medium_large'); ?>
 							<span class="openLightbox"></span>
