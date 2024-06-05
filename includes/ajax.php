@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Complément de fonction.php
  * fonctions pour AJAX 
  *
  * @package WordPress
@@ -10,7 +9,7 @@
 
 
 /**
- *  Génération de l'affichage des photos
+ *  Configuration de l'affichage des photos
  */
 function nathalie_mota_load()
 {
@@ -34,8 +33,8 @@ function nathalie_mota_load()
   // Configuration du filtre
   $custom_args = array(
     'post_type' => 'photo',
-    // 'posts_per_page' => 8,
-    'posts_per_page' => get_option('posts_per_page'), // Valeur par défaut
+    'posts_per_page' => 8,
+    // 'posts_per_page' => get_option('posts_per_page'), // Valeur par défaut
     'orderby' => $orderby,
     'order' => $order,
     'paged' => $paged,
@@ -58,7 +57,6 @@ function nathalie_mota_load()
   $query_more = new WP_Query($custom_args);
 
   $total_posts = get_posts($custom_args);
-  // echo $query->found_posts . " articles trouvés"; 
   $nb_total_posts  = $query_more->found_posts;
   $max_pages = $query_more->max_num_pages;
 
@@ -97,7 +95,7 @@ add_action('wp_ajax_nopriv_nathalie_mota_load', 'nathalie_mota_load');
 
 
 /**
- *  Récupération des données de de la photo pour la lightbox
+ *  Récupération des données de la photo pour la lightbox
  */
 function nathalie_mota_lightbox()
 {
