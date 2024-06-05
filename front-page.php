@@ -157,9 +157,38 @@ get_header();
                     <input type='hidden' name='max_pages' id='max_pages' value='<?php echo $max_pages; ?>'>
                     <input type="hidden" name="nb_total_posts" id="nb_total_posts" value="<?php echo $nb_total_posts; ?>">
                 </form>
+
+                <!-- Intégration de la liste des photos -->
                 <!-- On parcourt chacun des articles résultant de la requête -->
-                <?php while ($query->have_posts()) : $query->the_post();
-                    get_template_part('template-parts/publication');
+                <?php while ($query->have_posts()) : $query->the_post(); ?>
+                    <?php if (has_post_thumbnail()) : ?>
+
+                        <?php
+                        // On récupère la taxonomie ACF actuelle
+                        $term = get_queried_object();
+                        // On déclare les variables pour les informations de la photo
+                        $reference = get_field('reference');
+                        $categorie  = my_acf_load_value('name', get_field('categorie-acf'));
+                        ?>
+
+                        <!-- On génère le nombre de photo en fonction de l'option dans WordPress -->
+                        <div class="news-info brightness">
+                            <p class="photo-reference"><?php echo $reference; ?></p>
+                            <h3 class="info-tax"><?php echo $categorie; ?></h3>
+                            <a href="<?php the_permalink() ?>" aria-label="Voir la photo <?php the_title(); ?>" alt="<?php the_title(); ?>" title="Voir la photo"><span class="detail-photo"></span></a>
+                            <?php the_post_thumbnail(); ?>
+                            <p><?php the_terms($post->ID, 'categorie-acf', ''); ?></p>
+                            <form>
+                                <input type="hidden" name="postid" class="postid" value="<?php the_id(); ?>">
+
+                                <a class="openLightbox" title="Afficher la photo en plein écran" alt="Afficher la photo en plein écran" data-postid="<?php echo get_the_id(); ?>" data-arrow="true">
+                                </a>
+                            </form>
+                        </div>
+
+                    <?php endif; ?>
+                    <!-- // get_template_part('template-parts/publication'); -->
+                <?php
                 endwhile;
                 ?>
             </article>

@@ -3,7 +3,7 @@ Theme Name: nathalie-mota
 Theme URI: https://motaphoto.com
 Author: Ambre Ha Phuoc
 Author URI: https://motaphoto.com
-Description: Thème pour le site de partage de séries de photos de Nathalie Mota, avec ses clients
+Description: Thème pour le site Nathalie Mota
 Requires at least: WordPress 5.0
 Version: 1.0.0
 Text Domain: nathaliemota
@@ -23,13 +23,12 @@ body {
   font-family: "Poppins";
   margin: auto;
   width: 100%;
-  /* max-width: 1440px; */
 }
 
 h1 {
   padding-top: 50px;
   text-align: center;
-  font-family: Space Mono, sans-serif;
+  font-family: "Space Mono";
   letter-spacing: normal;
   word-spacing: normal;
   font-weight: bold;
@@ -93,12 +92,11 @@ ul li {
   height: 40px;
   justify-content: center;
   border-top: 1px solid #000000;
-  font-family: "Space Mono, sans-serif";
+  font-family: "Space Mono";
 }
 .menu-footer {
   display: flex;
   justify-content: center;
-  /* flex-direction: row; */
   flex-wrap: wrap;
 }
 
@@ -145,7 +143,7 @@ ul li {
   padding: 0;
 }
 
-/* Menu mobile */
+/* Burger Menu */
 .btn-modal {
   opacity: 1;
   position: absolute;
@@ -166,7 +164,6 @@ ul li {
 
 .btn-modal .line {
   opacity: 1;
-  /* opacity: 0; */
   height: 1.7px;
   background-color: #000;
   display: block;
@@ -235,7 +232,7 @@ ul li {
   animation: move-down 1.7s 200ms both;
 }
 
-/* Pour faire apparaitre la moadle en descendant et avec agmentatation de l'opacité */
+/* effet d'apparition du menu mobil en descendant */
 @keyframes move-down {
   0% {
     transform: translateY(-400px);
@@ -427,7 +424,7 @@ form {
 
 .filter-area p,
 .filter-area option {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   font-size: 14px;
   font-weight: 400;
 }
@@ -437,7 +434,7 @@ form {
 }
 
 .filter-area option {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .filter-area #date {
@@ -457,6 +454,7 @@ form {
   height: 40px;
   font-family: "Poppins";
   font-size: 12px;
+  text-transform: uppercase;
   color: #313144;
   margin-right: 40px;
   padding: 9px 15px 7px;
@@ -552,8 +550,7 @@ form {
 .detail-photo {
   position: absolute;
   cursor: pointer;
-  background: url("./assets/img/eye-svgrepo-com 1.png") center center / 100%
-    100%;
+  background: url("./assets/img/Icon_eye.png") center center / 100% 100%;
   background-repeat: no-repeat;
   width: 46px;
   height: 46px;
@@ -567,7 +564,7 @@ form {
 .openLightbox {
   position: absolute;
   cursor: pointer;
-  background: url("./assets/img/fullscreen.png") center center / 100% 100%;
+  background: url("./assets/img/Icon_fullscreen.png") center center / 100% 100%;
   background-repeat: no-repeat;
   width: 40px;
   height: 40px;

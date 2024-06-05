@@ -43,7 +43,7 @@ Theme URI: https://motaphoto.com
 }
 
 .lightbox__close {
-  background: url("../img/vector.svg") center center / 100% 100% no-repeat;
+  background: url("../img/cross_close.svg") center center / 100% 100% no-repeat;
   width: 25px;
   height: 25px;
   position: fixed;
@@ -53,12 +53,14 @@ Theme URI: https://motaphoto.com
 }
 
 .lightbox__prev {
-  background: url("../img/prev_white.svg") center center / 100% 100% no-repeat;
+  background: url("../img/arrow_prev_white.svg") center center / 100% 100%
+    no-repeat;
   left: 20px;
 }
 
 .lightbox__next {
-  background: url("../img/next_white.svg") center center / 100% 100% no-repeat;
+  background: url("../img/arrow_next_white.svg") center center / 100% 100%
+    no-repeat;
   right: 20px;
 }
 
