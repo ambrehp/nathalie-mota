@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Modal contact
  *
  * @package WordPress
  * @subpackage nathalie-mota theme

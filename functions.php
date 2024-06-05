@@ -19,10 +19,8 @@ function nathalie_mota_theme_enqueue()
 
     // swiper-style
     if (is_front_page()) {
-        // wp_enqueue_style( 'swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css' );
         wp_enqueue_style('swiper-style', get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css');
         wp_enqueue_script('swiper-element-bundle.min', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array(), '9.2.0', true);
-        // wp_enqueue_script( 'swiper-element-bundle.min', get_theme_file_uri( '/assets/js/swiper-bundle.min.js', array(), '9.2.0', true));
     };
 
     // Chargement des script JS personnalisés
@@ -70,37 +68,6 @@ function register_my_menu()
 }
 add_action('after_setup_theme', 'register_my_menu');
 
-// créer un pour la gestion des widgets dans l'administration
-// et l'activation des sidebars
-// Visibles ensuite dans Apparence / Widgets (widgets_init)
-// function nathalie_mota_widgets()
-// {
-//     register_sidebar(
-//         array(
-//             'name' => "Widget Sidebar",
-//             'id' => 'main-sidebar',
-//             'description' => "Widget pour la sidebar principale",
-//             'before_widget' => '<div id="%1$s" class="widget %2$s">',
-//             'after_widget'  => '</div>',
-//             'before_title'  => '<h2 class="widget-title">',
-//             'after_title'   => '</h2>'
-//         )
-//     );
-
-//     register_sidebar(
-//         array(
-//             'name' => "Widget footer",
-//             'id' => 'footer-widget',
-//             'description' => "Widget pour le pied de page",
-//             'before_widget' => '<div id="%1$s" class="widget %2$s">',
-//             'after_widget'  => '</div>',
-//             'before_title'  => '<h2 class="widget-title">',
-//             'after_title'   => '</h2>'
-//         )
-//     );
-// }
-// add_action('widgets_init', 'nathalie_mota_widgets');
-
 
 /**
  * Shortcode pour ajouter un bouton contact
@@ -118,7 +85,7 @@ function contact_btn($string)
 /** On publie le shortcode  */
 add_shortcode('contact', 'contact_btn');
 
-// Récupération de la valeur d'un champs personnalisé ACF
+// Récupération de la valeur d'un champs ACF
 // $variable = nom de la variable dont on veut récupérer la valeur
 // $field = nom du champs personnalisés
 function my_acf_load_value($variable,  $field)
@@ -160,5 +127,4 @@ function menu_nav()
 {
     $menu2 = wp_nav_menu(array('theme_location' => 'main'));
     $menu3 = wp_nav_menu(array('menu' => 'header'));
-    // echo ('Menu: ' . $menu3);
 }

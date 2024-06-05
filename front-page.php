@@ -29,7 +29,7 @@ get_header();
                     <?php $random_hero->the_post(); ?>
 
                     <?php if (has_post_thumbnail()) : ?>
-                        <a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>"><?php the_post_thumbnail('hero'); ?></a>
+                        <div><?php the_post_thumbnail('hero'); ?></div>
                     <?php endif; ?>
 
                 <?php endwhile; ?>
@@ -42,14 +42,14 @@ get_header();
         ?>
 
         <!-- Intégration des filtres -->
-        <div class="filter-area swiper-container">
-            <form class="flexrow swiper-wrapper" method="post">
+        <div class="filter-area">
+            <form class="flexrow" method="post">
                 <!--  -->
                 <!-- $terms->term_id :  -->
                 <!-- $terms->taxonomy : nom de la taxonomie -->
                 <!-- $terms->name : nom de l'élément de la taxonomie -->
                 <!-- $terms->term_taxonomy_id : n° de l'élément de la taxonomie -->
-                <div class="filterleft swiper-slide flexrow">
+                <div class="filterleft flexrow">
                     <div id="filtre-categorie" class="select-filter flexcolumn">
                         <select class="option-filter" name="categorie_id" id="categorie_id">
                             <option id="categorie_0" value="">CATÉGORIES</option>
@@ -83,7 +83,7 @@ get_header();
                         </select>
                     </div>
                 </div>
-                <div class="filterright swiper-slide flexrow">
+                <div class="filterright flexrow">
                     <div id="filtre-date" class="select-filter flexcolumn">
                         <select class="option-filter" name="date" id="date">
                             <option value="">TRIER PAR</option>
