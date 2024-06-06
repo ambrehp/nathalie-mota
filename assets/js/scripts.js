@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   contactBtn.forEach((contact) => {
     contact.addEventListener("click", () => {
       popupOverlay.classList.remove("hidden");
-      // Si une référence photo existe on la récupére et on l'ajoute dans le formulaire
+      // on re récupére la référence et on l'ajoute dans le formulaire
       if (document.querySelector(".reference") !== null) {
         let ref = document.querySelector(".reference").innerText.substring(11);
         ref = ref.trim();

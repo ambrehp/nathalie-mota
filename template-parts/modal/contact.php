@@ -1,7 +1,6 @@
 <?php
 
 /**
- *
  * @package WordPress
  * @subpackage nathalie-mota theme
  */
@@ -10,13 +9,12 @@
 
 <div class="popup-overlay hidden">
 	<div class="popup-contact">
-		<div class="popup-title__container">
+		<div class="popup-container">
 			<img class="titre-contact" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/contact.png' ?>" alt="Titre contact">
 		</div>
 		<div class="popup-informations">
 			<?php
-			// On insère le formulaire de demandes de renseignements
-			// get_field('reference')
+			// On insère le formulaire de contact
 			$refPhoto = "";
 			if (get_field('reference')) {
 				$refPhoto = get_field('reference');
