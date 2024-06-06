@@ -9,10 +9,10 @@ if (!function_exists('wp_body_open')) {
 
 function nathalie_mota_theme_enqueue()
 {
-    //  Chargement du style personnalisé du theme
+    //  Chargement des styles du theme
     wp_enqueue_style('nathalie-mota-style', get_stylesheet_uri(), array(), '1.0');
 
-    //  Chargement de style personnalisé pour le theme
+    //  Chargement des styles pour le theme
     wp_enqueue_style('nathalie-mota-single-photo-style', get_stylesheet_directory_uri() . '/assets/css/single-photo.css', filemtime(get_stylesheet_directory() . '/assets/css/single-photo.css'));
     wp_enqueue_style('nathalie-mota-lightbox-style', get_stylesheet_directory_uri() . '/assets/css/lightbox.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/lightbox.css'));
 

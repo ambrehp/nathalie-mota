@@ -8,9 +8,20 @@ Requires at least: WordPress 5.0
 Version: 1.0.0
 Text Domain: nathaliemota
 */
+
+/* SOMMAIRE
+ * Gegénéral
+ * header/footer
+ * burger menu
+ * popup contact
+ * filtres
+ * liste photos
+ */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
+/* général */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -57,6 +68,43 @@ ul li {
   flex-direction: column;
 }
 
+input[type="text"] {
+  border-radius: 4px;
+  border: none;
+  padding: 10px;
+  border: 1px solid #000000;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  padding: 10px;
+}
+
+#wrap,
+#front-page {
+  margin: 0 auto 40px;
+}
+
+#wrap {
+  width: 80%;
+}
+
+#front-page {
+  width: 100%;
+}
+
+#loop article {
+  margin: 0 0 50px 0;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+/* header et footer */
 #header,
 #footer {
   display: flex;
@@ -92,21 +140,8 @@ ul li {
   margin: 40px;
 }
 
-#footer {
-  height: 40px;
-  justify-content: center;
-  border-top: 1px solid #000000;
-  font-family: "Space Mono";
-}
-.menu-footer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 #header a,
-#footer,
-#widget-area {
+#footer {
   color: rgba(31, 31, 31, 1);
   text-decoration: none;
   font-weight: 400;
@@ -126,25 +161,37 @@ ul li {
 #header nav ul li {
   padding: 0 20px;
 }
-
 #navigation {
   display: flex;
   justify-content: space-between;
   align-content: center;
 }
-
 #navigation .menu-main-menu-container,
 #navigation #modal__burger {
   margin-right: 40px;
 }
-
 #navigation .menu-main-menu-container {
   opacity: 1;
   transition: all 0.3s ease-in-out;
 }
-
 #navigation .menu-main-menu-container a {
   padding: 0;
+}
+
+#footer {
+  height: 40px;
+  justify-content: center;
+  border-top: 1px solid #000000;
+  font-family: "Space Mono";
+}
+.menu-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#footer ul li,
+#footer span {
+  padding: 0 40px;
 }
 
 /* Burger Menu */
@@ -176,7 +223,7 @@ ul li {
   transition: all 0.3s ease-in-out;
 }
 
-/* Création du bouton pour fermer */
+/* Croix pour fermer burger menu */
 #modal__burger:hover .line:nth-child(2),
 .btn-modal.close .line:nth-child(2) {
   opacity: 0;
@@ -236,7 +283,7 @@ ul li {
   animation: move-down 1.7s 200ms both;
 }
 
-/* effet d'apparition du menu mobil en descendant */
+/* effet d'apparition en descendant du menu mobile */
 @keyframes move-down {
   0% {
     transform: translateY(-400px);
@@ -248,71 +295,119 @@ ul li {
   }
 }
 
-#footer ul li,
-#footer span {
-  padding: 0 40px;
+/* popup contact */
+
+.hidden {
+  visibility: hidden;
+  display: none !important;
 }
 
-input[type="text"] {
-  border-radius: 4px;
-  border: none;
-  padding: 10px;
-  border: 1px solid #000000;
+.popup-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
-button,
-input[type="submit"] {
-  cursor: pointer;
-  border-radius: 4px;
-  border: none;
-  background: transparent;
-  padding: 10px;
-}
-
-#wrap,
-#front-page {
-  margin: 0 auto 40px;
-}
-
-#wrap {
+.popup-contact {
+  position: relative;
+  background: white;
+  max-width: 600px;
   width: 80%;
+  height: 700px;
+  padding: 15px 0;
+  border: 5px solid #000000;
 }
 
-#front-page {
+.titre-contact {
   width: 100%;
 }
 
-#loop article {
-  margin: 0 0 50px 0;
-  background: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
+.popup-informations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0 10px;
+  max-width: 500px;
+  margin: auto;
 }
 
+.wpcf7-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.wpcf7-form p {
+  padding-top: 10px;
+}
+
+.wpcf7-form p label {
+  font-family: "Poppins", sans-serif;
+  color: #313144;
+  font-size: 12px;
+  line-height: 2.5em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.wpcf7-form p input {
+  height: 40px;
+  padding: 10px;
+}
+
+.wpcf7-form p textarea {
+  padding: 10px;
+}
+
+.wpcf7-form p .wpcf7-text,
+.wpcf7-form p .wpcf7-email,
+.wpcf7-form p textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #000000;
+}
+
+.wpcf7-form p .wpcf7-text:focus,
+.wpcf7-form p .wpcf7-email:focus,
+.wpcf7-form p textarea:focus {
+  border: 3px solid #000000;
+  background-color: rgba(175, 174, 174, 0.151);
+}
+
+.wpcf7-form p .wpcf7-submit {
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+  background-color: #d8d8d8;
+  color: #000000;
+  font-weight: normal;
+  text-transform: none;
+  padding-left: 8px;
+  padding-right: 15px;
+}
+.wpcf7-form p .wpcf7-submit:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
+.wpcf7-response-output {
+  width: 160%;
+  transform: translate(-20%, 0%);
+  color: red;
+}
+
+/* pagination */
 #pagination {
   text-align: center;
   margin-bottom: 65px;
 }
 
-#sidebar {
-  padding: 0 0 0 50px;
-  flex: 0 0 350px;
-}
-
-#sidebar .widget {
-  padding: 20px;
-  margin: 0 0 20px 0;
-  background: #fff;
-  border: 1px solid #ccc;
-}
-
-#footer .widget {
-  flex: 1;
-  padding: 0 40px;
-}
-
 /* BOUTONS */
-
 .wpcf7-submit {
   position: relative;
   top: 0;
@@ -431,13 +526,6 @@ form {
   font-family: "Poppins";
   font-size: 14px;
   font-weight: 400;
-}
-
-.filter-area p {
-  text-transform: uppercase;
-}
-
-.filter-area option {
   text-transform: uppercase;
 }
 
@@ -555,7 +643,7 @@ form {
 .detail-photo {
   position: absolute;
   cursor: pointer;
-  background: url("./assets/img/Icon_eye.png") center center / 100% 100%;
+  background: url("./assets/img/icon_eye.png") center center / 100% 100%;
   background-repeat: no-repeat;
   width: 46px;
   height: 46px;
@@ -569,7 +657,7 @@ form {
 .openLightbox {
   position: absolute;
   cursor: pointer;
-  background: url("./assets/img/Icon_fullscreen.png") center center / 100% 100%;
+  background: url("./assets/img/icon_fullscreen.png") center center / 100% 100%;
   background-repeat: no-repeat;
   width: 40px;
   height: 40px;
@@ -605,33 +693,30 @@ form {
 }
 
 /*  **********************************  */
-/*    Media query : max-width: 1023px    */
+/*    Media query : max-width: 1024px    */
 /*  **********************************  */
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
+  /* général */
   #wrap {
     width: 100%;
     flex-direction: column;
     padding: 0 20px;
   }
 
-  #sidebar {
-    padding: 0;
-  }
-
+  /* header */
   #header {
     height: 70px;
   }
-
   .hero-area img {
     max-height: 766px;
   }
-
   .hero-area .title-hero {
     font-size: 60px;
     line-height: 100px;
   }
 
+  /* liste photos */
   .container-news .news-info {
     width: 365px;
     height: 300px;
@@ -642,50 +727,56 @@ form {
 /*    Media query : max-width: 768px    */
 /*  **********************************  */
 @media all and (max-width: 768px) {
+  /* header */
   .container-header img {
     width: 138px;
   }
-
   #navigation .menu-main-menu-container {
     opacity: 0;
   }
-
   #navigation .menu-main-menu-container a {
     display: inline-block;
     transform: translateY(-200px);
     height: 0;
   }
-
   #modal__content .menu-main-menu-container {
     opacity: 1;
     height: auto;
   }
-
   #modal__content .menu-main-menu-container a {
     display: inline-block;
     transform: translateY(0);
     height: 0;
   }
-
   #modal__burger {
     opacity: 1;
     top: 0;
   }
-
   #navigation .menu-main-menu-container,
   #navigation #modal__burger {
     margin-right: 0;
   }
-
   .hero-area img {
     max-height: 500px;
   }
-
   .hero-area .title-hero {
     font-size: 40px;
     line-height: 80px;
   }
 
+  /* popup contact */
+  .popup-informations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 45px 5px;
+  }
+  .wpcf7-response-output {
+    width: 100%;
+    transform: translate(0%, 0%);
+  }
+
+  /* filtres */
   .filter-area .filterleft {
     width: 460px !important;
   }
@@ -695,37 +786,34 @@ form {
   .filter-area .option-filter {
     width: 150px;
   }
-  /* .swiper-wrapper {
-    width: 85% !important;
-  } */
 
+  /* footer */
   #footer {
     border-top: 1px solid #000000;
     padding: 30px 10px;
     font-size: 12px;
   }
-
   #footer,
   .menu-footer-menu-container,
   .menu-footer-menu-container li {
     display: flex;
   }
-
   #footer a,
   #footer aside {
     padding: 10px 0;
   }
 
+  /* pagination */
   #pagination {
     text-align: center;
     margin-bottom: 25px;
   }
 
+  /* liste photos */
   .container-news .news-info {
     width: 293px;
     height: 260px;
   }
-
   .news-info h3,
   .news-info p {
     font-size: 12px !important;
@@ -737,6 +825,7 @@ form {
 /*    Media query : max-width: 580px    */
 /*  **********************************  */
 @media all and (max-width: 580px) {
+  /* filtres */
   .filter-area {
     width: 100%;
     overflow: hidden;
@@ -746,15 +835,14 @@ form {
     width: 330px !important;
   }
 
-  /* .swiper-free-mode > .swiper-wrapper {
-    margin: 0 0 0 22px !important;
-  } */
+  /* liste photos */
   .news-info h3,
   .news-info p {
     font-size: 10px !important;
     line-height: 14px !important;
   }
 
+  /* footer */
   #footer {
     flex-direction: row;
     flex-wrap: wrap;
@@ -769,6 +857,7 @@ form {
 /*    Media query : max-width: 425px    */
 /*  **********************************  */
 @media all and (max-width: 425px) {
+  /* header */
   .hero-area img {
     max-height: 300px;
     width: 100%;
@@ -778,6 +867,7 @@ form {
     line-height: 50px;
   }
 
+  /* filtres */
   .filter-area {
     padding: 20px 20px 60px;
     width: 70%;
@@ -793,33 +883,32 @@ form {
     margin-right: 0;
     margin-bottom: 10px;
   }
-  /* .swiper-wrapper {
-    flex-wrap: wrap !important;
-  } */
 }
 
 /*  **********************************  */
 /*    Media query : max-width: 320px    */
 /*  **********************************  */
 @media all and (max-width: 320px) {
-  .news-info h3,
-  .news-info p {
-    font-size: 8px !important;
-    line-height: 10px !important;
-  }
-
+  /* header */
   .hero-area .title-hero {
     font-size: 30px;
     line-height: 40px;
   }
 
+  /* filtres */
   .filter-area {
     width: 90%;
   }
 
+  /* liste photos */
   .container-news .news-info {
     width: 100%;
     max-height: 260px;
     height: auto;
+  }
+  .news-info h3,
+  .news-info p {
+    font-size: 8px !important;
+    line-height: 10px !important;
   }
 }
