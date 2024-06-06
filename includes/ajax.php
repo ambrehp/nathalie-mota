@@ -127,7 +127,7 @@ function nathalie_mota_lightbox()
   if ($query_lightbox->have_posts()) {
     while ($query_lightbox->have_posts()) : $query_lightbox->the_post();
       if (get_the_id() == $photo_id) {
-        $response = get_template_part('template-parts/modal/lightbox');
+        $response = get_template_part('template-parts/lightbox');
       }
     endwhile;
   } else {
