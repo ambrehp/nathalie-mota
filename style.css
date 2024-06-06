@@ -489,10 +489,6 @@ button.contact {
 }
 
 /* FILTRES */
-form {
-  flex-wrap: nowrap;
-}
-
 .filter-area {
   width: 80%;
   min-width: 125px;

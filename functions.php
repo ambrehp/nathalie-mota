@@ -17,25 +17,24 @@ function nathalie_mota_theme_enqueue()
     wp_enqueue_style('nathalie-mota-lightbox-style', get_stylesheet_directory_uri() . '/assets/css/lightbox.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/lightbox.css'));
 
     // swiper-style
-    if (is_front_page()) {
-        wp_enqueue_style('swiper-style', get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css');
-        wp_enqueue_script('swiper-element-bundle.min', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array(), '9.2.0', true);
-    };
+    // if (is_front_page()) {
+    //     wp_enqueue_style('swiper-style', get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css');
+    //     wp_enqueue_script('swiper-element-bundle.min', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array(), '9.2.0', true);
+    // };
 
     // Chargement des script JS personnalisés
     wp_enqueue_script('nathalie-mota-scripts', get_theme_file_uri('/assets/js/script.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/script.js'), true);
+    wp_enqueue_script('nathalie-mota-scripts-lightbox', get_theme_file_uri('/assets/js/lightbox.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox.js'), true);
+    wp_enqueue_script('nathalie-mota-scripts-photo-list-ajax', get_theme_file_uri('/assets/js/photo-list-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list-ajax.js'), true);
+    wp_enqueue_script('nathalie-mota-scripts-lightbox-ajax', get_theme_file_uri('/assets/js/lightbox-front-page-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page-ajax.js'), true);
 
     // Script JS chargé pour tout le monde sauf avec front_page 
-    if (!is_front_page()) {
-        wp_enqueue_script('nathalie-mota-scripts-lightbox-ajax', get_theme_file_uri('/assets/js/lightbox-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-ajax.js'), true);
-    };
+    // if (!is_front_page()) {
+    // };
 
-    // Script JS disponnibles chargé uniquement avec front_page 
-    if (is_front_page()) {
-        wp_enqueue_script('nathalie-mota-scripts-filtres', get_theme_file_uri('/assets/js/filtres.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/filtres.js'), true);
-        wp_enqueue_script('nathalie-mota-scripts-photo-list-ajax', get_theme_file_uri('/assets/js/photo-list-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list-ajax.js'), true);
-        wp_enqueue_script('nathalie-mota-scripts-lightbox-ajax', get_theme_file_uri('/assets/js/lightbox-front-page-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page-ajax.js'), true);
-    };
+    // // Script JS disponnibles chargé uniquement avec front_page 
+    // if (is_front_page()) {
+    // };
 }
 add_action('wp_enqueue_scripts', 'nathalie_mota_theme_enqueue');
 
