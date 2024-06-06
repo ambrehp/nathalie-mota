@@ -13,7 +13,6 @@ function nathalie_mota_theme_enqueue()
     wp_enqueue_style('nathalie-mota-style', get_stylesheet_uri(), array(), '1.0');
 
     //  Chargement de style personnalisé pour le theme
-    wp_enqueue_style('nathalie-mota-contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/contact.css'));
     wp_enqueue_style('nathalie-mota-single-photo-style', get_stylesheet_directory_uri() . '/assets/css/single-photo.css', filemtime(get_stylesheet_directory() . '/assets/css/single-photo.css'));
     wp_enqueue_style('nathalie-mota-lightbox-style', get_stylesheet_directory_uri() . '/assets/css/lightbox.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/lightbox.css'));
 
@@ -24,7 +23,7 @@ function nathalie_mota_theme_enqueue()
     };
 
     // Chargement des script JS personnalisés
-    wp_enqueue_script('nathalie-mota-scripts', get_theme_file_uri('/assets/js/scripts.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/scripts.js'), true);
+    wp_enqueue_script('nathalie-mota-scripts', get_theme_file_uri('/assets/js/script.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/script.js'), true);
 
     // Script JS chargé pour tout le monde sauf avec front_page 
     if (!is_front_page()) {
@@ -85,7 +84,7 @@ function contact_btn($string)
 /** On publie le shortcode  */
 add_shortcode('contact', 'contact_btn');
 
-// Récupération de la valeur d'un champs ACF
+// Récupération de la valeur d'un champs personnalisé ACF
 // $variable = nom de la variable dont on veut récupérer la valeur
 // $field = nom du champs personnalisés
 function my_acf_load_value($variable,  $field)
@@ -127,4 +126,5 @@ function menu_nav()
 {
     $menu2 = wp_nav_menu(array('theme_location' => 'main'));
     $menu3 = wp_nav_menu(array('menu' => 'header'));
+    // echo ('Menu: ' . $menu3);
 }
