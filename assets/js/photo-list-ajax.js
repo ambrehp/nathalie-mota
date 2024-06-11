@@ -1,5 +1,4 @@
-// Gestion de l'affichage des photos supplémentaires en page d'accueil
-// en fonction de la valeur des filtres
+/////// Gestion pagination infinie en page d'accueil
 
 document.addEventListener("DOMContentLoaded", function () {
   (function ($) {
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // On récupère le jeton de sécurité
         const nonce = $("#nonce").val();
 
-        // On récupère de l'adresse de la page	pour pointer Ajax
+        // On récupère de l'adresse de la page pour pointer Ajax
         const ajaxurl = $("#ajaxurl").val();
 
         if (document.getElementById("currentPage") !== null) {

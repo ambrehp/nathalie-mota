@@ -1,3 +1,5 @@
+/////// Script général
+
 document.addEventListener("DOMContentLoaded", function () {
   // console.log("Lecture du DOM");
 

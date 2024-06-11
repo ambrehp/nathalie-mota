@@ -53,7 +53,9 @@ add_image_size('desktop-home', 600, 520, true);
 add_image_size('lightbox', 1300, 900, true);
 
 // créer un lien pour la gestion des menus dans l'administration
-// et activation d'un menu pour le header et d'un menu pour le footer
+// et activation d'un menu pour le header et pour le footer
+
+//fonction WordPress qui permet d'enregistrer une zone de menu de navigation dans le thème
 function register_my_menu()
 {
     register_nav_menu('main', "Menu principal");

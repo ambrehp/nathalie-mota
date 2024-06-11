@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The single : ATRICLE PHOTO 
+ * Page détail photo
  *
  * @package WordPress
  * @subpackage nathalie-mota theme
@@ -15,7 +15,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<section class="photo_detail">
 			<!-- Section détail photo -->
 			<?php
-			//   On vérifie l'activation de ACF
+			//   On vérifie l'activation ACF
 			if (!function_exists('get_field')) return;
 
 			// On récupère la taxonomie actuelle

@@ -1,13 +1,11 @@
-// Script pour la gestion de la Lightbox sur toutes les photos en dehors de la page d'accueil
+//////// Script de la Lightbox d'une page photo
 
 /**
  * nonce : jeton de sécurité
  * ajaxurl : adresse URL de la fonction Ajax dans WP
- *
  * total_posts : tableau de toutes les données des photos correspondantes aux filtres
  * nb_total_posts : nombres de photos à afficher
  * photo_id : indentifiant de la photo à afficher
- *
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -54,14 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // On extrait les informations de la photo et on les regroupe
       arrayFinish.push(arrayIntial.slice(`${start}`, `${end}`));
 
-      // On retire ces éléments pour le filtrage suivant
+      // On retire ces éléments pour le slide suivant
       arrayIntial = arrayIntial.slice(`${next}`, -1);
     }
   }
 
   // Récupérération de la position de la photo dans le tableau
   function recupIdData(arg) {
-    // On parcour le tableau à la recherche de l'identifiant de la photo
+    // On parcour le tableau à la recherche de l'ID de la photo
     for (let i = 0; i < nb_total_posts; i++) {
       data = arrayFinish[i].split("\n");
       let position = data[0].search("ID") + 7;
@@ -71,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Récupérération de l'identifiant de la photo en fonction de notre position dans la tableau
+  // Récupérération de l'identifiant de la photo en fonction de la position dans le tableau
   function recupIdPhoto(arg) {
     data = arrayFinish[arg].split("\n");
     let position = data[0].search("ID") + 7;
@@ -147,18 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
       $(".lightbox__close").click(function (e) {
         e.preventDefault();
         $.close();
-      });
-
-      /**
-       * Récupération des évenments au clavier
-       * @param {KeyboardEvent} e     */
-
-      $("body").keyup(function (e) {
-        e.preventDefault();
-        // Refermer la lightbox en faisant echap au clavier
-        if (e.key === "Escape") {
-          $.close();
-        }
       });
 
       // Affichage de la photo et des informations demandées

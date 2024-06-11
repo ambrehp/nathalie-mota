@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The front-page : ACCUEIL 
+ * Front-page : ACCUEIL 
  *
  * @package WordPress
  * @subpackage nathalie-mota theme
@@ -114,7 +114,6 @@ get_header();
         $custom_args = array(
             'post_type' => 'photo',
             'posts_per_page' => 8,
-            // 'posts_per_page' => get_option('posts_per_page'), // Valeur par défaut
             'order' => $order, // "", ASC , DESC 
             'orderby' =>  $orderby, // 'date' , 'meta_value_num', rand
             'paged' => 1,
@@ -181,7 +180,6 @@ get_header();
 
         <?php
         // On réinitialise à la requête principale
-        // wp_reset_query(); 
         wp_reset_postdata();
         ?>
 
