@@ -177,6 +177,10 @@ input[type="submit"] {
 #navigation .menu-main-menu-container a {
   padding: 0;
 }
+#menu-main-menu {
+  display: flex;
+  list-style: none;
+}
 
 #footer {
   height: 40px;
@@ -489,7 +493,6 @@ button.contact {
 }
 
 /* FILTRES */
-
 .select2-results__option.select2-results__option--selectable.select2-results__option--highlighted {
   background-color: #ffd6d6 !important;
   color: unset !important;
@@ -549,17 +552,32 @@ button.contact {
   display: inline-block;
 }
 
-.filter-area .option-filter {
-  border: 1px solid #b8bbc2;
-  border-radius: 8px;
-  width: 260px;
-  height: 40px;
-  font-family: "Poppins";
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #313144;
-  margin-right: 40px;
-  padding: 9px 15px 7px;
+.select2-container--default .select2-selection--single {
+  border: 1px solid #b8bbc2 !important;
+  border-radius: 8px !important;
+  width: 260px !important;
+  height: 40px !important;
+  /* font-family: "Poppins" !important; */
+  font-size: 12px !important;
+  /* text-transform: uppercase !important; */
+  /* color: #313144 !important; */
+  /* margin-right: 40px !important; */
+  padding: 9px 15px 7px !important;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  line-height: 23px !important;
+  color: #313144 !important;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  top: 12px !important;
+  right: 20px !important;
+  height: 16px !important;
 }
 
 /* Liste photos */

@@ -96,7 +96,7 @@ get_header();
             </form>
         </div>
 
-
+        <!-- intégration des posts photos -->
         <?php
         // Initialisation de variable pour les filtres de requettes Query
         $categorie_id = "";
