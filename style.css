@@ -54,7 +54,7 @@ a {
   color: #000000;
 }
 
-ul li {
+footer ul li {
   display: inline-block;
 }
 
@@ -489,6 +489,20 @@ button.contact {
 }
 
 /* FILTRES */
+
+.select2-results__option.select2-results__option--selectable.select2-results__option--highlighted {
+  background-color: #ffd6d6 !important;
+  color: unset !important;
+}
+.select2-results__option.select2-results__option--selectable.select2-results__option--highlighted:active {
+  background-color: #fe5858 !important;
+  color: unset !important;
+}
+.select2-results__option.select2-results__option--selectable.select2-results__option--selected {
+  background-color: #e00000 !important;
+  color: white !important;
+}
+
 .filter-area {
   width: 80%;
   min-width: 125px;

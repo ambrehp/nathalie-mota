@@ -52,7 +52,8 @@ get_header();
                 <div class="filterleft flexrow">
                     <div id="filtre-categorie" class="select-filter flexcolumn">
                         <select class="option-filter" name="categorie_id" id="categorie_id">
-                            <option id="categorie_0" value="">CATÉGORIES</option>
+                            <option id="categorie_0" value="" disabled selected hidden>CATÉGORIES</option>
+
                             <?php
                             // On récupère la taxonomie ACF catégorie
                             $filtres_categorie_acf = get_terms('categorie-acf', array('hide_empty' => false));
@@ -68,7 +69,7 @@ get_header();
                     </div>
                     <div id="filtre-format" class="select-filter flexcolumn">
                         <select class="option-filter" name="format_id" id="format_id">
-                            <option id="format_0" value="">FORMATS</option>
+                            <option id="format_0" value="" disabled selected hidden>FORMATS</option>
                             <?php
                             // On récupère la taxonomie ACF format
                             $filtre_format_acf = get_terms('format-acf', array('hide_empty' => false));
@@ -86,7 +87,7 @@ get_header();
                 <div class="filterright flexrow">
                     <div id="filtre-date" class="select-filter flexcolumn">
                         <select class="option-filter" name="date" id="date">
-                            <option value="">TRIER PAR</option>
+                            <option value="" disabled selected hidden>TRIER PAR</option>
                             <option value="desc" <?php if ($order === "desc") : ?>selected<?php endif; ?>>à partir des plus récentes</option>
                             <option value="asc" <?php if ($order === "asc") : ?>selected<?php endif; ?>>à partir des plus anciennes</option>
                         </select>

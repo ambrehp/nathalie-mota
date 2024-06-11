@@ -75,6 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   (function ($) {
     $(document).ready(function () {
+      $("select").select2({ width: "100%" });
+
       $(".option-filter").change(function (e) {
         // Empêcher l'envoi classique du formulaire
         e.preventDefault();
