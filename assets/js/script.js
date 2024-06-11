@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   })(jQuery);
 
-  // Ouverture de la popup contact au clic sur le lien contact
+  // Ouverture de la popup contact au clic sur contact
   contactBtn.forEach((contact) => {
     contact.addEventListener("click", () => {
       popupOverlay.classList.remove("hidden");
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   (function ($) {
     $(document).ready(function () {
-      $("select").select2({ width: "100%" });
+      $("select").select2({ width: "100%", minimumResultsForSearch: -1 });
 
       $(".option-filter").change(function (e) {
         // Empêcher l'envoi classique du formulaire

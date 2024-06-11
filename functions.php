@@ -21,19 +21,15 @@ function nathalie_mota_theme_enqueue()
     // Chargement des script JS personnalisés
     wp_enqueue_script('nathalie-mota-scripts', get_theme_file_uri('/assets/js/script.js'), array('jquery', 'select2'), filemtime(get_stylesheet_directory() . '/assets/js/script.js'));
 
-    // Script JS chargé pour tout le monde sauf avec front_page 
     if (!is_front_page()) {
         wp_enqueue_script('nathalie-mota-scripts-lightbox', get_theme_file_uri('/assets/js/lightbox.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox.js'));
-    };
-
-    // Script JS disponnibles chargé uniquement avec front_page 
-    if (is_front_page()) {
-        wp_enqueue_script('nathalie-mota-scripts-photo-list-ajax', get_theme_file_uri('/assets/js/photo-list-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list-ajax.js'));
+    } else {
         wp_enqueue_script('nathalie-mota-scripts-lightbox-ajax', get_theme_file_uri('/assets/js/lightbox-front-page-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page-ajax.js'));
+    }
+    wp_enqueue_script('nathalie-mota-scripts-photo-list-ajax', get_theme_file_uri('/assets/js/photo-list-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list-ajax.js'));
 
-        // Chargement de Select2
-        wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), '4.1.0-rc.0');
-    };
+    // Chargement de Select2
+    wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), '4.1.0-rc.0');
 }
 add_action('wp_enqueue_scripts', 'nathalie_mota_theme_enqueue');
 
