@@ -21,6 +21,7 @@ function nathalie_mota_theme_enqueue()
     // Chargement du script JS
     wp_enqueue_script('nathalie-mota-scripts', get_theme_file_uri('/assets/js/script.js'), array('jquery', 'select2'), filemtime(get_stylesheet_directory() . '/assets/js/script.js'));
 
+<<<<<<< HEAD
     // Script JS chargé sauf sur front_page 
     if (!is_front_page()) {
         wp_enqueue_script('nathalie-mota-scripts-lightbox', get_theme_file_uri('/assets/js/lightbox.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox.js'));
@@ -29,11 +30,17 @@ function nathalie_mota_theme_enqueue()
     // Script JS chargé uniquement sur front_page 
     if (is_front_page()) {
         wp_enqueue_script('nathalie-mota-scripts-photo-list-ajax', get_theme_file_uri('/assets/js/photo-list-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list-ajax.js'));
+=======
+    if (!is_front_page()) {
+        wp_enqueue_script('nathalie-mota-scripts-lightbox', get_theme_file_uri('/assets/js/lightbox.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox.js'));
+    } else {
+>>>>>>> 35c491239b87f766659af8802f3314f3018f7426
         wp_enqueue_script('nathalie-mota-scripts-lightbox-ajax', get_theme_file_uri('/assets/js/lightbox-front-page-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page-ajax.js'));
+    }
+    wp_enqueue_script('nathalie-mota-scripts-photo-list-ajax', get_theme_file_uri('/assets/js/photo-list-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list-ajax.js'));
 
-        // Chargement de Select2
-        wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), '4.1.0-rc.0');
-    };
+    // Chargement de Select2
+    wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), '4.1.0-rc.0');
 }
 add_action('wp_enqueue_scripts', 'nathalie_mota_theme_enqueue');
 
@@ -57,7 +64,9 @@ add_image_size('desktop-home', 600, 520, true);
 add_image_size('lightbox', 1300, 900, true);
 
 // créer un lien pour la gestion des menus dans l'administration
-// et activation d'un menu pour le header et d'un menu pour le footer
+// et activation d'un menu pour le header et pour le footer
+
+//fonction WordPress qui permet d'enregistrer une zone de menu de navigation dans le thème
 function register_my_menu()
 {
     register_nav_menu('main', "Menu principal");

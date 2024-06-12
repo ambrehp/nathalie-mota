@@ -1,8 +1,6 @@
 <?php
 
 /**
- * The header
- *
  * @package WordPress
  * @subpackage nathalie-mota
  */
@@ -15,13 +13,10 @@
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<meta name="keywords" content="photographe événementiel, photographe event, nathalie mota, photo format hd" />
-	<meta name="description" content="Nathalie Mota - Site personnel pour la vente de mes photos en impression HD." <link rel="preconnect" href="https://fonts.googleapis.com">
+	<meta name="title" content="Nathalie Mota" <link rel="preconnect" href="https://fonts.googleapis.com">
+	<meta name="description" content="Photographe freelance pour vos évènements <link rel=" preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
-	<!-- Récupération sur Fontawesome des icones dont on aura besoin -->
-	<script src="https://kit.fontawesome.com/57bf6f7049.js" crossorigin="anonymous"></script>
 
 	<?php wp_head(); ?>
 </head>
@@ -38,7 +33,7 @@
 				// Affichage du menu main déclaré dans functions.php
 				wp_nav_menu(array('theme_location' => 'main'));
 				?>
-				<button id="modal__burger" class="btn-modal" aria-label="Menu version portable">
+				<button id="modal__burger" class="btn-modal" aria-label="Menu version mobile">
 					<span class="line"></span>
 					<span class="line"></span>
 					<span class="line"></span>

@@ -1,14 +1,11 @@
-// Script pour la gestion de la Lightbox sur toutes les photos uniqueùent sur la page d'acceuil
+//////// Script de la Lightbox uniqueùent sur la page d'acceuil
 
 /**
- *
  * nonce : jeton de sécurité
  * ajaxurl : adresse URL de la fonction Ajax dans WP
- *
  * total_posts : tableau de toutes les données des photos correspondantes aux filtres
  * nb_total_posts : nombres de photos à afficher
  * photo_id : indentifiant de la photo à afficher
- *
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -103,14 +100,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // On recherche si c'est une class detail-photo
         if (e.target.className === "detail-photo") {
-          // Si on est bien sur un élément avec la class detail-photo
-          // on récupère l'adresse email liée à cet élément pour ouvrir ce lien
+          // Si c'est un élément avec la class detail-photo
+          // on ouvre le lien
           window.location.href = e.target.parentElement.getAttribute("href");
         }
 
         // Et recherche si c'est une class openLightbox
         if (e.target.className === "openLightbox") {
-          // Si c'est bien un élément avec la class openLightbox
+          // Si c'est un élément avec la class openLightbox
           // On récupère les élements complémentaires lié à cet élément
           if (!$(e.target).data("arrow")) {
             arrow = $(e.target).data("arrow");
@@ -128,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           $(".lightbox").removeClass("hidden");
 
-          // On s'assure de le container est vide avant de charger le code
+          // Vérification que le container soit vide avant de charger le code
           $("#lightbox__container_content").empty();
           $.changePhoto();
         }
@@ -182,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Affichage de la photo et des informations demandées
+      // Affichage de la photo plein écran et des info
       $.changePhoto = function () {
         // Récupération du jeton de sécurité
         const nonce = $("#nonce").val();
