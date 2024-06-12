@@ -28,8 +28,8 @@ function nathalie_mota_theme_enqueue()
 
     // Script JS chargé uniquement sur front_page 
     if (is_front_page()) {
-        wp_enqueue_script('nathalie-mota-scripts-photo-list', get_theme_file_uri('/assets/js/photo-list.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list.js'));
-        wp_enqueue_script('nathalie-mota-scripts-lightbox', get_theme_file_uri('/assets/js/lightbox-front-page.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page.js'));
+        wp_enqueue_script('nathalie-mota-scripts-photo-list-ajax', get_theme_file_uri('/assets/js/photo-list-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list-ajax.js'));
+        wp_enqueue_script('nathalie-mota-scripts-lightbox-ajax', get_theme_file_uri('/assets/js/lightbox-front-page-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page-ajax.js'));
 
         // Chargement de Select2
         wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), '4.1.0-rc.0');
