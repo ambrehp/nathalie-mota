@@ -18,18 +18,18 @@ function nathalie_mota_theme_enqueue()
     wp_enqueue_style('nathalie-mota-lightbox-style', get_stylesheet_directory_uri() . '/assets/css/lightbox.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/lightbox.css'));
     wp_enqueue_style('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), '4.1.0-rc.0');
 
-    // Chargement des script JS personnalisés
+    // Chargement du script JS
     wp_enqueue_script('nathalie-mota-scripts', get_theme_file_uri('/assets/js/script.js'), array('jquery', 'select2'), filemtime(get_stylesheet_directory() . '/assets/js/script.js'));
 
-    // Script JS chargé pour tout le monde sauf avec front_page 
+    // Script JS chargé sauf sur front_page 
     if (!is_front_page()) {
         wp_enqueue_script('nathalie-mota-scripts-lightbox', get_theme_file_uri('/assets/js/lightbox.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox.js'));
     };
 
-    // Script JS disponnibles chargé uniquement avec front_page 
+    // Script JS chargé uniquement sur front_page 
     if (is_front_page()) {
-        wp_enqueue_script('nathalie-mota-scripts-photo-list-ajax', get_theme_file_uri('/assets/js/photo-list-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list-ajax.js'));
-        wp_enqueue_script('nathalie-mota-scripts-lightbox-ajax', get_theme_file_uri('/assets/js/lightbox-front-page-ajax.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page-ajax.js'));
+        wp_enqueue_script('nathalie-mota-scripts-photo-list', get_theme_file_uri('/assets/js/photo-list.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/photo-list.js'));
+        wp_enqueue_script('nathalie-mota-scripts-lightbox', get_theme_file_uri('/assets/js/lightbox-front-page.js'), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page.js'));
 
         // Chargement de Select2
         wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), '4.1.0-rc.0');
